@@ -18,20 +18,20 @@ export default function Hero() {
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+                    transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
                     className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-lg mb-10 mx-auto"
                 >
                     Minimalist aesthetic. Premium quality. Designed for the modern individual.
                 </motion.p>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+                    transition={{ duration: 1.0, ease: "easeOut", delay: 0.4 }}
                 >
-                    <button className="group px-8 py-4 bg-foreground text-background text-sm font-semibold tracking-widest uppercase rounded-full hover:scale-105 active:scale-95 transition-all">
+                    <Link href="/products" className="group px-8 py-4 bg-foreground text-background text-sm font-semibold tracking-widest uppercase rounded-full hover:scale-105 active:scale-95 transition-all inline-block">
                         Shop Collection
-                    </button>
+                    </Link>
                 </motion.div>
             </div>
 

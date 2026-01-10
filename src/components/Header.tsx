@@ -28,17 +28,15 @@ export default function Header() {
 
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
-                        <div className="relative h-4 w-auto aspect-[3/1] -translate-y-[2.5px]">
-                            <Image
-                                src="/logo.png"
-                                alt="Flowouts Logo"
-                                width={120}
-                                height={32}
-                                className="object-contain dark:invert"
-                                priority
-                            />
-                        </div>
-                        <span className="text-xl font-bold tracking-tighter uppercase hidden sm:block leading-none">Flowouts</span>
+                        <Image
+                            src="/logo.png"
+                            alt="Flowouts Logo"
+                            width={56}
+                            height={56}
+                            className="dark:invert"
+                            priority
+                        />
+                        <span className="text-xl font-bold tracking-tighter uppercase hidden sm:block">Flowouts</span>
                     </Link>
                 </div>
 

@@ -243,7 +243,7 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
 
         const resizeObserver = new ResizeObserver(() => {
             const parent = canvas.parentElement;
-            if (parent) {
+            if (parent && parent.clientWidth > 0) {
                 canvas.width = parent.clientWidth;
                 canvas.height = 300; // Fixed height for text area
                 nextWord(words[0], canvas);

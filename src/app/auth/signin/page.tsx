@@ -37,9 +37,15 @@ export default function SignIn() {
     return (
         <div className="min-h-screen flex flex-col md:flex-row bg-background text-foreground">
             {/* Left Side - Image/Brand */}
-            <div className="hidden md:flex flex-1 bg-black relative overflow-hidden items-center justify-center">
-                <div className="absolute inset-0 opacity-40 bg-[url('https://flowouts.com/cdn/shop/files/7303051550260819368_2048.jpg?v=1758601911')] bg-cover bg-center" />
-                <div className="relative z-10 p-12 text-white">
+            <div className="hidden md:flex flex-1 bg-gradient-to-br from-neutral-900 via-black to-neutral-800 relative overflow-hidden items-center justify-center">
+                {/* Abstract decorative elements */}
+                <div className="absolute inset-0">
+                    <div className="absolute top-1/4 -left-20 w-80 h-80 bg-white/5 rounded-full blur-3xl" />
+                    <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/10 rounded-full" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/5 rounded-full" />
+                </div>
+                <div className="relative z-10 p-12 text-white text-center">
                     <h1 className="text-6xl font-bold tracking-tighter uppercase mb-6">Flowouts</h1>
                     <p className="text-xl max-w-md opacity-80">
                         Join our community of minimalists. Experience premium quality designed for the modern individual.
