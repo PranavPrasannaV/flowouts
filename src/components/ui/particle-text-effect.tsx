@@ -131,8 +131,11 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
         offscreenCanvas.height = canvas.height
         const offscreenCtx = offscreenCanvas.getContext("2d")!
 
+        // Responsive font size: smaller on mobile
+        const fontSize = Math.min(150, canvas.width * 0.18)
+
         offscreenCtx.fillStyle = "white"
-        offscreenCtx.font = "bold 150px Arial" // Variable font size?
+        offscreenCtx.font = `bold ${fontSize}px Arial`
         offscreenCtx.textAlign = "center"
         offscreenCtx.textBaseline = "middle"
         offscreenCtx.fillText(word, canvas.width / 2, canvas.height / 2)
@@ -245,7 +248,8 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
             const parent = canvas.parentElement;
             if (parent && parent.clientWidth > 0) {
                 canvas.width = parent.clientWidth;
-                canvas.height = 500; // Fixed height for text area
+                // Responsive height: 300px on mobile, 500px on desktop
+                canvas.height = window.innerWidth < 768 ? 300 : 500;
                 nextWord(words[0], canvas);
             }
         });
@@ -280,8 +284,7 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
         <div className="w-full flex justify-center items-center">
             <canvas
                 ref={canvasRef}
-                className=""
-                style={{ width: "100%", height: "500px" }}
+                className="w-full h-[300px] md:h-[500px]"
             />
         </div>
     )

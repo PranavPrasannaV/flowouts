@@ -11,7 +11,7 @@ export default function Hero() {
             {/* Abstract Background Gradient */}
             {/* Removed as per instruction */}
 
-            <div className="z-10 text-center px-6 w-full max-w-5xl mx-auto">
+            <div className="z-10 text-center px-4 md:px-6 w-full max-w-5xl mx-auto">
                 <motion.div
                     className="mb-4"
                     initial={{ opacity: 0 }}
@@ -46,7 +46,7 @@ export default function Hero() {
                         delay: 3.5
                     }}
                 >
-                    <Link href="/products" className="group px-8 py-4 bg-foreground text-background text-sm font-semibold tracking-widest uppercase rounded-full hover:scale-105 active:scale-95 transition-all inline-block">
+                    <Link href="/products" className="group px-6 py-3 md:px-8 md:py-4 bg-foreground text-background text-xs md:text-sm font-semibold tracking-widest uppercase rounded-full hover:scale-105 active:scale-95 transition-all inline-block">
                         Shop Collection
                     </Link>
                 </motion.div>
