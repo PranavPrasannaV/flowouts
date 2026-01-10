@@ -10,11 +10,15 @@ export default function AboutPage() {
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase mb-8">
                     {aboutContent.title}
                 </h1>
-                <div className="prose dark:prose-invert prose-lg text-neutral-600 dark:text-neutral-400 whitespace-pre-line">
+                <div className="prose dark:prose-invert prose-lg text-neutral-600 dark:text-neutral-400 whitespace-pre-line mb-8">
                     {aboutContent.body}
                 </div>
+                <p className="text-neutral-500 dark:text-neutral-400 italic">
+                    {aboutContent.contact}
+                </p>
             </section>
             <Footer />
         </main>
     );
 }
+

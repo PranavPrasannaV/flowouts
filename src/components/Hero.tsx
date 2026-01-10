@@ -18,7 +18,7 @@ export default function Hero() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <ParticleTextEffect words={["FLOWOUTS"]} />
+                    <ParticleTextEffect words={["FLOW"]} />
                 </motion.div>
 
                 {/* Subtitle appears after particle animation settles (~2.5s) */}

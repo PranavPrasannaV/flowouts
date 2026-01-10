@@ -8,7 +8,11 @@ import { useCart } from "@/context/CartContext";
 import { useState } from "react";
 import SearchModal from "./SearchModal";
 
-export default function Header() {
+interface HeaderProps {
+    animationDelay?: number;
+}
+
+export default function Header({ animationDelay = 0 }: HeaderProps) {
     const { toggleCart, cart } = useCart();
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -17,7 +21,7 @@ export default function Header() {
             <motion.header
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 2 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: animationDelay }}
                 className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 md:px-12 backdrop-blur-md bg-white/70 dark:bg-black/70 border-b border-black/5 dark:border-white/5"
             >
                 <div className="flex items-center gap-4">
@@ -36,7 +40,7 @@ export default function Header() {
                             className="dark:invert"
                             priority
                         />
-                        <span className="text-xl font-bold tracking-tighter uppercase hidden sm:block">Flowouts</span>
+                        <span className="text-xl font-bold tracking-tighter uppercase hidden sm:block">Flow</span>
                     </Link>
                 </div>
 

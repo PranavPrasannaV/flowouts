@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col bg-background selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
-      <Header />
+      <Header animationDelay={2} />
       <Hero />
       <EssentialsCollection />
       <FeaturedCollection />

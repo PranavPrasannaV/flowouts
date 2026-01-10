@@ -87,8 +87,8 @@ class Particle {
     }
 
     generateRandomPos(x: number, y: number, mag: number): Vector2D {
-        const randomX = Math.random() * 2000
-        const randomY = Math.random() * 1000
+        const randomX = Math.random() * 3000
+        const randomY = Math.random() * 2000
 
         const direction = {
             x: randomX - x,
@@ -245,7 +245,7 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
             const parent = canvas.parentElement;
             if (parent && parent.clientWidth > 0) {
                 canvas.width = parent.clientWidth;
-                canvas.height = 300; // Fixed height for text area
+                canvas.height = 500; // Fixed height for text area
                 nextWord(words[0], canvas);
             }
         });
@@ -281,7 +281,7 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
             <canvas
                 ref={canvasRef}
                 className=""
-                style={{ width: "100%", height: "300px" }}
+                style={{ width: "100%", height: "500px" }}
             />
         </div>
     )
