@@ -18,6 +18,7 @@ interface BlurTextAnimationProps {
     fontFamily?: string;
     textColor?: string;
     animationDelay?: number;
+    loop?: boolean;
 }
 
 export default function BlurTextAnimation({
@@ -25,9 +26,10 @@ export default function BlurTextAnimation({
     words,
     className = "",
     fontSize = "text-4xl md:text-5xl lg:text-6xl",
-    fontFamily = "font-['Avenir_Next',_'Avenir',_system-ui,_sans-serif]",
+    fontFamily = "font-sans",
     textColor = "text-white",
-    animationDelay = 4000
+    animationDelay = 4000,
+    loop = false
 }: BlurTextAnimationProps) {
     const [isAnimating, setIsAnimating] = useState(false);
     const animationTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
@@ -46,16 +48,14 @@ export default function BlurTextAnimation({
 
             const baseDelay = index * 0.06;
 
-            // Use deterministic random-like values based on index instead of Math.random()
-            // to prevent hydration mismatches between server and client
-            const pseudoRandom = (index * 37 % 100) / 100;
-            const microVariation = (pseudoRandom - 0.5) * 0.05;
+            // Deterministic variation based on index instead of random
+            const microVariation = ((index * 7) % 10 - 5) * 0.01;
 
             return {
                 text: word,
                 duration: 2.2 + Math.cos(index * 0.3) * 0.3,
                 delay: baseDelay + exponentialDelay + microVariation,
-                blur: 12 + Math.floor(((index * 53 % 10) / 10) * 8),
+                blur: 12 + (index % 8),
                 scale: 0.9 + Math.sin(index * 0.2) * 0.05
             };
         });
@@ -73,16 +73,15 @@ export default function BlurTextAnimation({
                 maxTime = Math.max(maxTime, totalTime);
             });
 
-            // Loop removed: Animation plays once and stays.
-            /*
-            animationTimeoutRef.current = setTimeout(() => {
-                setIsAnimating(false);
+            if (loop) {
+                animationTimeoutRef.current = setTimeout(() => {
+                    setIsAnimating(false);
 
-                resetTimeoutRef.current = setTimeout(() => {
-                    startAnimation();
-                }, animationDelay);
-            }, (maxTime + 1) * 1000);
-            */
+                    resetTimeoutRef.current = setTimeout(() => {
+                        startAnimation();
+                    }, animationDelay);
+                }, (maxTime + 1) * 1000);
+            }
         };
 
         startAnimation();
@@ -91,40 +90,39 @@ export default function BlurTextAnimation({
             if (animationTimeoutRef.current) clearTimeout(animationTimeoutRef.current);
             if (resetTimeoutRef.current) clearTimeout(resetTimeoutRef.current);
         };
-    }, [textWords, animationDelay]);
+    }, [textWords, animationDelay, loop]);
 
     return (
-        <div className={`flex items-center justify-center ${className}`}>
-            <div className="text-center">
-                <p className={`${textColor} ${fontSize} ${fontFamily} font-light leading-relaxed tracking-wide`}>
-                    {textWords.map((word, index) => (
-                        <span
-                            key={index}
-                            className={`inline-block transition-all ${isAnimating ? 'opacity-100' : 'opacity-0'}`}
-                            style={{
-                                transitionDuration: `${word.duration}s`,
-                                transitionDelay: `${word.delay}s`,
-                                transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                                filter: isAnimating
-                                    ? 'blur(0px) brightness(1)'
-                                    : `blur(${word.blur}px) brightness(0.6)`,
-                                transform: isAnimating
-                                    ? 'translateY(0) scale(1) rotateX(0deg)'
-                                    : `translateY(20px) scale(${word.scale || 1}) rotateX(-15deg)`,
-                                marginRight: index === textWords.length - 1 ? '0' : '0.35em',
-                                willChange: 'filter, transform, opacity',
-                                transformStyle: 'preserve-3d',
-                                backfaceVisibility: 'hidden',
-                                textShadow: isAnimating
-                                    ? '0 2px 8px rgba(255,255,255,0.1)'
-                                    : '0 0 40px rgba(255,255,255,0.4)'
-                            }}
-                        >
-                            {word.text}
-                        </span>
-                    ))}
-                </p>
-            </div>
+        <div className={`${className}`}>
+            <p className={`${textColor} ${fontSize} ${fontFamily} font-light leading-relaxed tracking-wide`}>
+                {textWords.map((word, index) => (
+                    <span
+                        key={index}
+                        className={`inline-block transition-all ${isAnimating ? 'opacity-100' : 'opacity-0'}`}
+                        style={{
+                            transitionDuration: `${word.duration}s`,
+                            transitionDelay: `${word.delay}s`,
+                            transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                            filter: isAnimating
+                                ? 'blur(0px) brightness(1)'
+                                : `blur(${word.blur}px) brightness(0.6)`,
+                            transform: isAnimating
+                                ? 'translateY(0) scale(1) rotateX(0deg)'
+                                : `translateY(20px) scale(${word.scale || 1}) rotateX(-15deg)`,
+                            marginRight: index === textWords.length - 1 ? '0' : '0.35em',
+                            willChange: 'filter, transform, opacity',
+                            transformStyle: 'preserve-3d',
+                            backfaceVisibility: 'hidden',
+                        }}
+                    >
+                        {word.text}
+                    </span>
+                ))}
+            </p>
         </div>
     );
+}
+
+export function Component() {
+    return <BlurTextAnimation />;
 }
