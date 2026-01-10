@@ -5,7 +5,7 @@ export default function Footer() {
         <footer className="bg-black text-white py-16 px-6 md:px-12 border-t border-neutral-800">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div className="col-span-1 md:col-span-2">
-                    <h2 className="text-2xl font-bold uppercase tracking-tighter mb-4">Flowouts</h2>
+                    <h2 className="text-2xl font-bold uppercase tracking-tighter mb-4">Flow</h2>
                     <p className="text-neutral-400 text-sm max-w-sm">
                         Elevating everyday essentials with premium quality and minimalist design.
                         Join the movement.
@@ -16,17 +16,17 @@ export default function Footer() {
                     <h3 className="text-sm font-bold uppercase tracking-widest mb-6">Shop</h3>
                     <ul className="space-y-4 text-neutral-400 text-sm">
                         <li><Link href="/products" className="hover:text-white transition-colors">All Products</Link></li>
-                        <li><Link href="/products" className="hover:text-white transition-colors">New Arrivals</Link></li>
-                        <li><Link href="/products" className="hover:text-white transition-colors">Accessories</Link></li>
+                        <li><Link href="/collections" className="hover:text-white transition-colors">Collections</Link></li>
+                        <li><Link href="/products?category=Accessories" className="hover:text-white transition-colors">Accessories</Link></li>
                     </ul>
                 </div>
 
                 <div>
                     <h3 className="text-sm font-bold uppercase tracking-widest mb-6">Support</h3>
                     <ul className="space-y-4 text-neutral-400 text-sm">
-                        <li><Link href="#" className="hover:text-white transition-colors">FAQ</Link></li>
-                        <li><Link href="#" className="hover:text-white transition-colors">Shipping & Returns</Link></li>
-                        <li><Link href="#" className="hover:text-white transition-colors">Contact Us</Link></li>
+                        <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
+                        <li><Link href="/terms" className="hover:text-white transition-colors">Shipping & Returns</Link></li>
+                        <li><Link href="mailto:contact@flow.com" className="hover:text-white transition-colors">Contact Me</Link></li>
                     </ul>
                 </div>
             </div>

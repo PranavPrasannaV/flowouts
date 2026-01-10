@@ -47,7 +47,7 @@ export default function Hero() {
                     }}
                 >
                     <Link href="/products" className="group px-6 py-3 md:px-8 md:py-4 bg-foreground text-background text-xs md:text-sm font-semibold tracking-widest uppercase rounded-full hover:scale-105 active:scale-95 transition-all inline-block">
-                        Shop Collection
+                        Shop All Products
                     </Link>
                 </motion.div>
             </div>

@@ -46,7 +46,7 @@ export default function SignIn() {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/5 rounded-full" />
                 </div>
                 <div className="relative z-10 p-12 text-white text-center">
-                    <h1 className="text-6xl font-bold tracking-tighter uppercase mb-6">Flowouts</h1>
+                    <h1 className="text-6xl font-bold tracking-tighter uppercase mb-6">Flow</h1>
                     <p className="text-xl max-w-md opacity-80">
                         Join our community of minimalists. Experience premium quality designed for the modern individual.
                     </p>

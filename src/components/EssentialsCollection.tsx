@@ -8,12 +8,12 @@ import Link from "next/link";
 export default function EssentialsCollection() {
     return (
         <section className="py-24 px-6 md:px-12 bg-neutral-50 dark:bg-neutral-900/20">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-3xl md:text-5xl font-bold tracking-tighter uppercase"
+                    className="text-3xl md:text-5xl font-bold tracking-tighter uppercase text-center md:text-left"
                 >
                     The Essentials<br />Collection
                 </motion.h2>
@@ -27,9 +27,12 @@ export default function EssentialsCollection() {
                 </motion.p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+            {/* Mobile: horizontal scroll | Desktop: grid */}
+            <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 snap-x snap-mandatory scrollbar-hide">
                 {essentialsCollection.slice(0, 4).map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <div key={product.id} className="min-w-[75vw] sm:min-w-[60vw] md:min-w-0 snap-start">
+                        <ProductCard product={product} />
+                    </div>
                 ))}
             </div>
 
