@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 interface Vector2D {
     x: number
@@ -14,12 +14,12 @@ class Particle {
     target: Vector2D = { x: 0, y: 0 }
 
     closeEnoughTarget = 100
-    maxSpeed = 8.0 // Faster speed
-    maxForce = 0.2 // Stronger steering
-    particleSize = 4 // Smaller particles for cleaner look
+    maxSpeed = 8.0
+    maxForce = 0.2
+    particleSize = 4
     isKilled = false
 
-    startColor = { r: 255, g: 255, b: 255 } // Start white
+    startColor = { r: 255, g: 255, b: 255 }
     targetColor = { r: 255, g: 255, b: 255 }
     colorWeight = 0
     colorBlendRate = 0.01
@@ -110,19 +110,28 @@ class Particle {
 
 interface ParticleTextEffectProps {
     words?: string[]
+    logoSrc?: string
+    transitionDelay?: number // ms before transitioning from logo to text
 }
 
-const DEFAULT_WORDS = ["FLOWOUTS"]
+const DEFAULT_WORDS = ["FLOW"]
 
-export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffectProps) {
+export function ParticleTextEffect({
+    words = DEFAULT_WORDS,
+    logoSrc = "/logo-infinity.png",
+    transitionDelay = 2500
+}: ParticleTextEffectProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const animationRef = useRef<number | undefined>(undefined)
     const particlesRef = useRef<Particle[]>([])
     const frameCountRef = useRef(0)
     const wordIndexRef = useRef(0)
     const mouseRef = useRef({ x: 0, y: 0, isPressed: false, isRightClick: false })
+    const hasTransitionedRef = useRef(false)
+    const logoImageRef = useRef<HTMLImageElement | null>(null)
+    const isInitializedRef = useRef(false)
 
-    const pixelSteps = 4 // Density
+    const pixelSteps = 4
     const drawAsPoints = true
 
     const nextWord = (word: string, canvas: HTMLCanvasElement) => {
@@ -131,7 +140,6 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
         offscreenCanvas.height = canvas.height
         const offscreenCtx = offscreenCanvas.getContext("2d")!
 
-        // Responsive font size: smaller on mobile
         const fontSize = Math.min(150, canvas.width * 0.18)
 
         offscreenCtx.fillStyle = "white"
@@ -180,7 +188,86 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
 
                 particle.target.x = x
                 particle.target.y = y
-                particle.targetColor = { r: 255, g: 255, b: 255 } // Force white
+                particle.targetColor = { r: 255, g: 255, b: 255 }
+            }
+        }
+
+        for (let i = particleIndex; i < particles.length; i++) {
+            particles[i].kill(canvas.width, canvas.height)
+        }
+    }
+
+    const loadLogoAsParticles = (image: HTMLImageElement, canvas: HTMLCanvasElement, isInitialLoad: boolean = false) => {
+        const offscreenCanvas = document.createElement("canvas")
+        offscreenCanvas.width = canvas.width
+        offscreenCanvas.height = canvas.height
+        const offscreenCtx = offscreenCanvas.getContext("2d")!
+
+        // Scale logo to fit nicely in the canvas - LARGER for visibility
+        const maxLogoWidth = Math.min(400, canvas.width * 0.5)
+        const scale = maxLogoWidth / image.width
+        const logoWidth = image.width * scale
+        const logoHeight = image.height * scale
+        const logoX = (canvas.width - logoWidth) / 2
+        const logoY = (canvas.height - logoHeight) / 2
+
+        offscreenCtx.drawImage(image, logoX, logoY, logoWidth, logoHeight)
+
+        const imageData = offscreenCtx.getImageData(0, 0, canvas.width, canvas.height)
+        const pixels = imageData.data
+
+        const particles = particlesRef.current
+        let particleIndex = 0
+
+        const coordsIndexes: number[] = []
+        for (let i = 0; i < pixels.length; i += pixelSteps * 4) {
+            coordsIndexes.push(i)
+        }
+
+        // Shuffle for random particle assignment
+        for (let i = coordsIndexes.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1))
+                ;[coordsIndexes[i], coordsIndexes[j]] = [coordsIndexes[j], coordsIndexes[i]]
+        }
+
+        for (const coordIndex of coordsIndexes) {
+            const pixelIndex = coordIndex
+            const r = pixels[pixelIndex]
+            const g = pixels[pixelIndex + 1]
+            const b = pixels[pixelIndex + 2]
+            const alpha = pixels[pixelIndex + 3]
+
+            // Calculate brightness - check for white/bright pixels (the infinity symbol)
+            const brightness = (r + g + b) / 3
+
+            if (alpha > 128 && brightness > 200) { // White pixels only
+                const x = (pixelIndex / 4) % canvas.width
+                const y = Math.floor(pixelIndex / 4 / canvas.width)
+
+                let particle: Particle
+
+                if (particleIndex < particles.length) {
+                    particle = particles[particleIndex]
+                    particle.isKilled = false
+                    particleIndex++
+                } else {
+                    particle = new Particle()
+                    // For initial load, start particles much closer to center for faster formation
+                    if (isInitialLoad) {
+                        // Start near the target with small random offset
+                        particle.pos.x = x + (Math.random() - 0.5) * 100
+                        particle.pos.y = y + (Math.random() - 0.5) * 100
+                    } else {
+                        const randomPos = particle.generateRandomPos(canvas.width / 2, canvas.height / 2, (canvas.width + canvas.height) / 2)
+                        particle.pos.x = randomPos.x
+                        particle.pos.y = randomPos.y
+                    }
+                    particles.push(particle)
+                }
+
+                particle.target.x = x
+                particle.target.y = y
+                particle.targetColor = { r: 255, g: 255, b: 255 }
             }
         }
 
@@ -196,7 +283,7 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
         const ctx = canvas.getContext("2d")!
         const particles = particlesRef.current
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height) // Transparent background if needed
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
 
         for (let i = particles.length - 1; i >= 0; i--) {
             const particle = particles[i]
@@ -215,28 +302,6 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
             }
         }
 
-        /*
-        if (mouseRef.current.isPressed) {
-            particles.forEach((particle) => {
-                const distance = Math.sqrt(
-                    Math.pow(particle.pos.x - mouseRef.current.x, 2) + Math.pow(particle.pos.y - mouseRef.current.y, 2),
-                )
-                if (distance < 50) {
-                    particle.kill(canvas.width, canvas.height)
-                }
-            })
-        }
-        */
-
-        // Loop words disabled
-        /*
-        frameCountRef.current++
-        if (frameCountRef.current % 300 === 0) {
-          wordIndexRef.current = (wordIndexRef.current + 1) % words.length
-          nextWord(words[wordIndexRef.current], canvas)
-        }
-        */
-
         animationRef.current = requestAnimationFrame(animate)
     }
 
@@ -244,19 +309,52 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
         const canvas = canvasRef.current
         if (!canvas) return
 
+        // Load logo image
+        const img = new Image()
+        img.crossOrigin = "anonymous"
+        img.src = logoSrc
+        logoImageRef.current = img
+
         const resizeObserver = new ResizeObserver(() => {
             const parent = canvas.parentElement;
             if (parent && parent.clientWidth > 0) {
-                canvas.width = parent.clientWidth;
-                // Responsive height: 300px on mobile, 500px on desktop
-                canvas.height = window.innerWidth < 768 ? 300 : 500;
-                nextWord(words[0], canvas);
+                const newWidth = parent.clientWidth;
+                const newHeight = window.innerWidth < 768 ? 300 : 500;
+
+                // Only resize if dimensions actually changed
+                if (canvas.width !== newWidth || canvas.height !== newHeight) {
+                    canvas.width = newWidth;
+                    canvas.height = newHeight;
+
+                    // Re-render current state after resize
+                    if (!isInitializedRef.current && logoImageRef.current?.complete) {
+                        loadLogoAsParticles(logoImageRef.current, canvas, true);
+                        isInitializedRef.current = true;
+                    } else if (hasTransitionedRef.current) {
+                        nextWord(words[0], canvas);
+                    }
+                }
             }
         });
+
+        img.onload = () => {
+            if (canvas.width > 0 && !isInitializedRef.current) {
+                loadLogoAsParticles(img, canvas, true);
+                isInitializedRef.current = true;
+            }
+        }
 
         resizeObserver.observe(canvas.parentElement!);
 
         animate()
+
+        // Schedule transition from logo to text
+        const transitionTimer = setTimeout(() => {
+            if (canvas.width > 0) {
+                hasTransitionedRef.current = true;
+                nextWord(words[0], canvas);
+            }
+        }, transitionDelay);
 
         const handleMouseMove = (e: MouseEvent) => {
             const rect = canvas.getBoundingClientRect()
@@ -273,12 +371,13 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
 
         return () => {
             if (animationRef.current) cancelAnimationFrame(animationRef.current)
+            clearTimeout(transitionTimer)
             resizeObserver.disconnect()
             canvas.removeEventListener("mousemove", handleMouseMove)
             canvas.removeEventListener("mousedown", handleMouseDown)
             canvas.removeEventListener("mouseup", handleMouseUp)
         }
-    }, [words])
+    }, [words, logoSrc, transitionDelay])
 
     return (
         <div className="w-full flex justify-center items-center">
@@ -289,3 +388,4 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
         </div>
     )
 }
+
