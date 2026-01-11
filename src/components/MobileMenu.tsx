@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ShoppingBag, User, Info, Grid3X3, Shirt, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { X, ShoppingBag, User, Info, Grid3X3, Shirt } from "lucide-react";
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -27,8 +26,6 @@ const collectionItems = [
 ];
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
-    const [collectionsOpen, setCollectionsOpen] = useState(false);
-
     return (
         <AnimatePresence>
             {isOpen && (
@@ -119,47 +116,30 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         {/* Divider */}
                         <div className="mx-6 border-t border-white/10" />
 
-                        {/* Collections Section - Dropdown */}
+                        {/* Collections Section */}
                         <div className="p-6">
-                            <button
-                                onClick={() => setCollectionsOpen(!collectionsOpen)}
-                                className="flex items-center justify-between w-full text-left py-2"
-                            >
-                                <p className="text-xs text-white/40 uppercase tracking-widest">Collections</p>
-                                <motion.div
-                                    animate={{ rotate: collectionsOpen ? 180 : 0 }}
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    <ChevronDown className="w-4 h-4 text-white/40" />
-                                </motion.div>
-                            </button>
-                            <AnimatePresence>
-                                {collectionsOpen && (
+                            <p className="text-xs text-white/40 uppercase tracking-widest mb-4">Collections</p>
+                            <div className="space-y-1">
+                                {collectionItems.map((item, index) => (
                                     <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.2 }}
-                                        className="overflow-hidden"
+                                        key={item.label}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.3 + index * 0.05 }}
                                     >
-                                        <div className="space-y-1 mt-3">
-                                            {collectionItems.map((item) => (
-                                                <Link
-                                                    key={item.label}
-                                                    href={item.href}
-                                                    onClick={onClose}
-                                                    className="flex items-center gap-4 py-3 px-4 rounded-xl hover:bg-white/5 transition-colors group"
-                                                >
-                                                    <Grid3X3 className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors" />
-                                                    <span className="text-base text-white/70 group-hover:text-white transition-colors">
-                                                        {item.label}
-                                                    </span>
-                                                </Link>
-                                            ))}
-                                        </div>
+                                        <Link
+                                            href={item.href}
+                                            onClick={onClose}
+                                            className="flex items-center gap-4 py-3 px-4 rounded-xl hover:bg-white/5 transition-colors group"
+                                        >
+                                            <Grid3X3 className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors" />
+                                            <span className="text-base text-white/70 group-hover:text-white transition-colors">
+                                                {item.label}
+                                            </span>
+                                        </Link>
                                     </motion.div>
-                                )}
-                            </AnimatePresence>
+                                ))}
+                            </div>
                         </div>
 
                         {/* Divider */}
