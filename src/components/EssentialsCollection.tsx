@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { essentialsCollection } from "@/data/products";
-import { ProductCard } from "@/components/FeaturedCollection";
+import { essentialsWithinReachCollection } from "@/data/collections";
+import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
 
 export default function EssentialsCollection() {
@@ -29,7 +29,7 @@ export default function EssentialsCollection() {
 
             {/* Mobile: horizontal scroll | Desktop: grid */}
             <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 snap-x snap-mandatory scrollbar-hide">
-                {essentialsCollection.slice(0, 4).map((product) => (
+                {essentialsWithinReachCollection.slice(0, 4).map((product) => (
                     <div key={product.id} className="min-w-[75vw] sm:min-w-[60vw] md:min-w-0 snap-start">
                         <ProductCard product={product} />
                     </div>
@@ -37,13 +37,13 @@ export default function EssentialsCollection() {
             </div>
 
             <div className="mt-16 flex justify-center">
-                <Link href="/products">
+                <Link href="/collections/essentials">
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="px-8 py-3 border border-black dark:border-white text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
                     >
-                        Shop All Essentials
+                        Shop the Essentials Collection
                     </motion.button>
                 </Link>
             </div>

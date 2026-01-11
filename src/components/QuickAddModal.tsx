@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, Plus, Minus, ShoppingCart } from "lucide-react";
+import { X, Plus, Minus, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import { Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
@@ -23,32 +23,41 @@ const colors = [
 
 export default function QuickAddModal({ product, isOpen, onClose }: QuickAddModalProps) {
     const { addToCart } = useCart();
-    const [selectedSize, setSelectedSize] = useState<string | null>(null);
-    const [selectedColor, setSelectedColor] = useState<string>("Black");
+    // State to track selections for each option group (e.g., { Size: "M", Color: "Black" })
+    const [selections, setSelections] = useState<Record<string, string>>({});
     const [quantity, setQuantity] = useState(1);
 
     if (!product) return null;
 
+    // Check if all options have a selection
+    const allOptionsSelected = product.options.every(opt => selections[opt.name]);
+
     const handleAddToCart = () => {
-        if (!selectedSize) {
-            // Highlight size selection
-            return;
-        }
+        if (!allOptionsSelected) return;
+
+        // Generate variant name
+        const variantSuffix = Object.values(selections).join(" / ");
 
         // Add product with selected options
         for (let i = 0; i < quantity; i++) {
             addToCart({
                 ...product,
-                id: `${product.id}-${selectedSize}-${selectedColor}`,
-                name: `${product.name} - ${selectedSize} / ${selectedColor}`,
+                id: `${product.id}-${variantSuffix}`,
+                name: `${product.name} - ${variantSuffix}`,
             });
         }
 
         // Reset and close
-        setSelectedSize(null);
-        setSelectedColor("Black");
+        setSelections({});
         setQuantity(1);
         onClose();
+    };
+
+    const handleOptionSelect = (optionName: string, value: string) => {
+        setSelections(prev => ({
+            ...prev,
+            [optionName]: value
+        }));
     };
 
     return (
@@ -79,7 +88,7 @@ export default function QuickAddModal({ product, isOpen, onClose }: QuickAddModa
                                     {/* Product Image */}
                                     <div className="relative w-20 h-24 rounded-lg overflow-hidden bg-neutral-800 flex-shrink-0">
                                         <Image
-                                            src={product.image}
+                                            src={product.images?.[0] || ""}
                                             alt={product.name}
                                             fill
                                             className="object-cover"
@@ -105,54 +114,31 @@ export default function QuickAddModal({ product, isOpen, onClose }: QuickAddModa
                             </div>
 
                             {/* Options */}
-                            <div className="p-4 space-y-5">
-                                {/* Color Selection */}
-                                <div>
-                                    <p className="text-xs text-white/60 uppercase tracking-widest mb-3">
-                                        Color: <span className="text-white">{selectedColor}</span>
-                                    </p>
-                                    <div className="flex gap-2">
-                                        {colors.map((color) => (
-                                            <button
-                                                key={color.name}
-                                                onClick={() => setSelectedColor(color.name)}
-                                                className={`
-                                                    w-8 h-8 rounded-full border-2 transition-all
-                                                    ${selectedColor === color.name
-                                                        ? 'border-white scale-110'
-                                                        : 'border-transparent hover:border-white/30'
-                                                    }
-                                                `}
-                                                style={{ backgroundColor: color.hex }}
-                                                title={color.name}
-                                            />
-                                        ))}
+                            <div className="p-4 space-y-5 max-h-[60vh] overflow-y-auto">
+                                {product.options.map((option) => (
+                                    <div key={option.name}>
+                                        <p className="text-xs text-white/60 uppercase tracking-widest mb-3">
+                                            {option.name}: <span className="text-white">{selections[option.name] || "Select"}</span>
+                                        </p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {option.values.map((value) => (
+                                                <button
+                                                    key={value}
+                                                    onClick={() => handleOptionSelect(option.name, value)}
+                                                    className={`
+                                                        px-3 py-2 rounded-lg text-sm font-medium transition-all
+                                                        ${selections[option.name] === value
+                                                            ? 'bg-white text-black'
+                                                            : 'bg-white/10 text-white hover:bg-white/20'
+                                                        }
+                                                    `}
+                                                >
+                                                    {value}
+                                                </button>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-
-                                {/* Size Selection */}
-                                <div>
-                                    <p className="text-xs text-white/60 uppercase tracking-widest mb-3">
-                                        Size: <span className="text-white">{selectedSize || "Select a size"}</span>
-                                    </p>
-                                    <div className="grid grid-cols-6 gap-2">
-                                        {sizes.map((size) => (
-                                            <button
-                                                key={size}
-                                                onClick={() => setSelectedSize(size)}
-                                                className={`
-                                                    py-2.5 rounded-lg text-sm font-medium transition-all
-                                                    ${selectedSize === size
-                                                        ? 'bg-white text-black'
-                                                        : 'bg-white/10 text-white hover:bg-white/20'
-                                                    }
-                                                `}
-                                            >
-                                                {size}
-                                            </button>
-                                        ))}
-                                    </div>
-                                </div>
+                                ))}
 
                                 {/* Quantity */}
                                 <div>
@@ -183,17 +169,17 @@ export default function QuickAddModal({ product, isOpen, onClose }: QuickAddModa
                             <div className="p-4 pt-0">
                                 <button
                                     onClick={handleAddToCart}
-                                    disabled={!selectedSize}
+                                    disabled={!allOptionsSelected}
                                     className={`
                                         w-full py-4 rounded-xl font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-2 transition-all
-                                        ${selectedSize
+                                        ${allOptionsSelected
                                             ? 'bg-white text-black hover:bg-neutral-200'
                                             : 'bg-white/20 text-white/50 cursor-not-allowed'
                                         }
                                     `}
                                 >
-                                    <ShoppingCart className="w-4 h-4" />
-                                    {selectedSize ? "Add to Cart" : "Select a Size"}
+                                    <ShoppingBag className="w-4 h-4" />
+                                    {allOptionsSelected ? "Add to Cart" : "Select Options"}
                                 </button>
                             </div>
                         </div>

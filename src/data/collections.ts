@@ -1,4 +1,4 @@
-import { Product } from "./products";
+import { Product, products } from "./products";
 
 export interface Collection {
     id: string;
@@ -10,49 +10,97 @@ export interface Collection {
     products: Product[];
 }
 
-// Rise Collection - Minimalist streetwear with "Rise" text and rose/flower icons
-export const riseCollection: Product[] = [
-    { id: "rise-1", name: "Unisex Oversized Rise Icon Fleece - Lights", price: "$36.00", category: "Sweatshirts", image: "https://flowouts.com/cdn/shop/files/7eb5a9c0fb9845f28b9b231597d9ddde.png?v=1766262761" },
-    { id: "rise-2", name: "Unisex Rise Icon Clinched Sweatpants", price: "$35.50", category: "Pants", image: "https://flowouts.com/cdn/shop/files/a87a995820f4496cb3bbcec372023a4c.png?v=1766264660" },
-    { id: "rise-3", name: "Essential Cotton T-Shirt", price: "$24.00", category: "T-Shirts", image: "https://flowouts.com/cdn/shop/files/2d9ba9fd6f434953a8a3b1861eed84be.png?v=1763398158" },
-    { id: "rise-4", name: "Unisex Oversized Rise Hoodie - Lights", price: "$37.50", category: "Hoodies", image: "https://flowouts.com/cdn/shop/files/e69a84747b0647a8ab85a55b0d3ecf16.png?v=1766265064" },
-    { id: "rise-5", name: "Unisex Oversized Rise Hoodie - Darks", price: "$37.50", category: "Hoodies", image: "https://flowouts.com/cdn/shop/files/c50190668a55401f87a19fa434a429a5.png?v=1766265005" },
-    { id: "rise-6", name: "Unisex Rise Icon Tee - Lights", price: "$21.00", category: "T-Shirts", image: "https://flowouts.com/cdn/shop/files/16288427630593147062_2048.jpg?v=1760411429" },
-    { id: "rise-7", name: "Unisex Rise Icon Tee", price: "$21.00", category: "T-Shirts", image: "https://flowouts.com/cdn/shop/files/10014795168014931179_2048.jpg?v=1757271457" },
-    { id: "rise-8", name: "Unisex Rise Icon Sweatpants", price: "$35.00", category: "Pants", image: "https://flowouts.com/cdn/shop/files/11c8946cc2aa4274b2f621d0063cc878.png?v=1766264426" },
-    { id: "rise-9", name: "Unisex Oversized Rise Icon Fleece - Darks", price: "$36.00", category: "Sweatshirts", image: "https://flowouts.com/cdn/shop/files/b7de01e2cb7d4f3eb0c20f5336be7ed6.png?v=1766262961" },
+// Rise Collection
+const riseNames = [
+    "Unisex Oversized Rise Icon Fleece - Lights",
+    "Unisex Rise Icon Clinched Sweatpants",
+    "Essential Cotton T-Shirt",
+    "Unisex Oversized Rise Hoodie - Lights",
+    "Unisex Oversized Rise Hoodie - Darks",
+    "Unisex Rise Icon Tee - Lights",
+    "Unisex Rise Icon Tee",
+    "Unisex Rise Icon Sweatpants",
+    "Unisex Oversized Rise Icon Fleece - Darks"
 ];
+export const riseCollection: Product[] = products.filter(p => riseNames.includes(p.name));
 
-// The Chef Collection - Chef theme with Chef hats and flowers
-export const chefCollection: Product[] = [
-    { id: "chef-1", name: "Unisex Flower Icon Oversized Hoodie", price: "$36.00", category: "Hoodies", image: "https://flowouts.com/cdn/shop/files/12883155825177698600_2048.jpg?v=1760411786" },
-    { id: "chef-2", name: "Unisex Flower Clinched Sweatpants", price: "$35.50", category: "Pants", image: "https://flowouts.com/cdn/shop/files/a87a995820f4496cb3bbcec372023a4c.png?v=1766264660" },
-    { id: "chef-3", name: "Unisex Flower Straight Leg Sweatpants", price: "$32.50", category: "Pants", image: "https://flowouts.com/cdn/shop/files/216b398c4c504279bb4401743fa3e1f2.png?v=1766264560" },
-    { id: "chef-4", name: "Unisex Chef Straight Leg Sweatpants", price: "$32.50", category: "Pants", image: "https://flowouts.com/cdn/shop/files/216b398c4c504279bb4401743fa3e1f2.png?v=1766264560" },
-    { id: "chef-5", name: "Unisex Chef Drawstring Sweatpants", price: "$30.50", category: "Pants", image: "https://flowouts.com/cdn/shop/files/11c8946cc2aa4274b2f621d0063cc878.png?v=1766264426" },
-    { id: "chef-6", name: "Unisex Chef Clinched Sweatpants", price: "$33.99", category: "Pants", image: "https://flowouts.com/cdn/shop/files/a87a995820f4496cb3bbcec372023a4c.png?v=1766264660" },
-    { id: "chef-7", name: "Unisex Chef's Flowers Oversized Hoodie - Lights", price: "$37.50", category: "Hoodies", image: "https://flowouts.com/cdn/shop/files/e69a84747b0647a8ab85a55b0d3ecf16.png?v=1766265064" },
-    { id: "chef-8", name: "Unisex Chef's Flowers Oversized Hoodie - Darks", price: "$37.50", category: "Hoodies", image: "https://flowouts.com/cdn/shop/files/c50190668a55401f87a19fa434a429a5.png?v=1766265005" },
+// The Chef Collection
+const chefNames = [
+    "Unisex Flower Icon Oversized Hoodie",
+    "Unisex Flower Clinched Sweatpants",
+    "Unisex Flower Straight Leg Sweatpants",
+    "Unisex Chef Straight Leg Sweatpants",
+    "Unisex Chef Drawstring Sweatpants",
+    "Unisex Chef Clinched Sweatpants",
+    "Unisex Chef's Flowers Oversized Hoodie - Lights",
+    "Unisex Chef's Flowers Oversized Hoodie - Darks"
 ];
+export const chefCollection: Product[] = products.filter(p => chefNames.includes(p.name));
 
-// Essentials: Within Reach Collection - Edgy streetwear with splatter paint patterns
-export const essentialsWithinReachCollection: Product[] = [
-    { id: "ess-1", name: "Unisex Splatter Clinched Sweatpants", price: "$27.65", category: "Pants", image: "https://flowouts.com/cdn/shop/files/a87a995820f4496cb3bbcec372023a4c.png?v=1766264660" },
-    { id: "ess-2", name: "Unisex Splatter Jogged Sweatpants", price: "$26.60", category: "Pants", image: "https://flowouts.com/cdn/shop/files/11c8946cc2aa4274b2f621d0063cc878.png?v=1766264426" },
-    { id: "ess-3", name: "Men's Icon Crewneck Sweatshirt", price: "$29.60", category: "Sweatshirts", image: "https://flowouts.com/cdn/shop/files/7eb5a9c0fb9845f28b9b231597d9ddde.png?v=1766262761" },
-    { id: "ess-4", name: "Men's Splatter Crewneck Sweatshirt", price: "$28.60", category: "Sweatshirts", image: "https://flowouts.com/cdn/shop/files/2146985109198489075_2048.jpg?v=1760412030" },
-    { id: "ess-5", name: "Women's Splatter Mock-Neck Crew Sweatshirt", price: "$28.60", category: "Sweatshirts", image: "https://flowouts.com/cdn/shop/files/7eb5a9c0fb9845f28b9b231597d9ddde.png?v=1766262761" },
-    { id: "ess-6", name: "Men's Vintage Crewneck Sweatshirt", price: "$28.60", category: "Sweatshirts", image: "https://flowouts.com/cdn/shop/files/2146985109198489075_2048.jpg?v=1760412030" },
-    { id: "ess-7", name: "Women's Vintage Mock-Neck Crew Sweatshirt", price: "$29.60", category: "Sweatshirts", image: "https://flowouts.com/cdn/shop/files/7eb5a9c0fb9845f28b9b231597d9ddde.png?v=1766262761" },
-    { id: "ess-8", name: "Unisex Vintage Oversized Hoodie", price: "$25.70", category: "Hoodies", image: "https://flowouts.com/cdn/shop/files/b7de01e2cb7d4f3eb0c20f5336be7ed6.png?v=1766262961" },
-    { id: "ess-9", name: "Women's Within Reach Mock-Neck Crew Sweatshirt", price: "$29.60", category: "Sweatshirts", image: "https://flowouts.com/cdn/shop/files/7eb5a9c0fb9845f28b9b231597d9ddde.png?v=1766262761" },
-    { id: "ess-10", name: "Unisex Splatter Drawstring Sweatpants", price: "$23.60", category: "Pants", image: "https://flowouts.com/cdn/shop/files/11c8946cc2aa4274b2f621d0063cc878.png?v=1766264426" },
-    { id: "ess-11", name: "Unisex Splatter Straight-Leg Sweatpants", price: "$24.65", category: "Pants", image: "https://flowouts.com/cdn/shop/files/216b398c4c504279bb4401743fa3e1f2.png?v=1766264560" },
-    { id: "ess-12", name: "Unisex Oversized Within Reach Hoodie - Darks", price: "$27.20", category: "Hoodies", image: "https://flowouts.com/cdn/shop/files/c50190668a55401f87a19fa434a429a5.png?v=1766265005" },
-    { id: "ess-13", name: "Unisex Oversized Within Reach Hoodie", price: "$27.20", category: "Hoodies", image: "https://flowouts.com/cdn/shop/files/e69a84747b0647a8ab85a55b0d3ecf16.png?v=1766265064" },
-    { id: "ess-14", name: "Unisex Oversized Essentials Splatter Hoodie - Darks", price: "$25.70", category: "Hoodies", image: "https://flowouts.com/cdn/shop/files/c50190668a55401f87a19fa434a429a5.png?v=1766265005" },
-    { id: "ess-15", name: "Unisex Oversized Essentials Splatter Hoodie", price: "$25.70", category: "Hoodies", image: "https://flowouts.com/cdn/shop/files/12883155825177698600_2048.jpg?v=1760411786" },
+// Essentials: Within Reach Collection
+const essentialsNames = [
+    "Unisex Splatter Clinched Sweatpants",
+    "Unisex Splatter Jogged Sweatpants",
+    "Men's Icon Crewneck Sweatshirt",
+    "Men's Splatter Crewneck Sweatshirt",
+    "Women's Splatter Mock-Neck Crew Sweatshirt",
+    "Men's Vintage Crewneck Sweatshirt",
+    "Unisex Vintage Oversized Hoodie",
+    "Women's Vintage Mock-Neck Crew Sweatshirt",
+    "Women's Within Reach Mock-Neck Crew Sweatshirt",
+    "Unisex Splatter Drawstring Sweatpants",
+    "Unisex Splatter Straight-Leg Sweatpants",
+    "Unisex Oversized Within Reach Hoodie - Darks",
+    "Unisex Oversized Within Reach Hoodie",
+    "Unisex Oversized Essentials Splatter Hoodie - Darks",
+    "Unisex Oversized Essentials Splatter Hoodie"
 ];
+export const essentialsWithinReachCollection: Product[] = products.filter(p => essentialsNames.includes(p.name));
+
+// Mens Collection
+const mensNames = [
+    "Unisex Bloom Tee", "Unisex Custom T-shirt", "Unisex Vintage Oversized Hoodie", "Unisex Splatter Drawstring Sweatpants",
+    "Unisex Splatter Straight-Leg Sweatpants", "Unisex Oversized Within Reach Hoodie - Darks", "Unisex Oversized Within Reach Hoodie",
+    "Unisex Oversized Essentials Splatter Hoodie - Darks", "Unisex Oversized Essentials Splatter Hoodie", "Unisex Flower Icon Oversized Hoodie",
+    "Unisex Flower Clinched Sweatpants", "Unisex Flower Straight Leg Sweatpants", "Unisex Chef Straight Leg Sweatpants",
+    "Unisex Chef Drawstring Sweatpants", "Unisex Chef Clinched Sweatpants", "Unisex Chef's Flowers Oversized Hoodie - Lights",
+    "Unisex Chef's Flowers Oversized Hoodie - Darks", "Unisex Oversized Rise Icon Fleece - Lights", "Unisex Rise Icon Clinched Sweatpants",
+    "Unisex Rise Icon Tee - Lights", "Unisex Rise Icon Tee", "Unisex Rise Icon Sweatpants", "Unisex Oversized Rise Icon Fleece - Darks",
+    "Essential Cotton T-Shirt", "Unisex Oversized Rise Hoodie - Lights", "Unisex Oversized Rise Hoodie - Darks", "Unisex Moisture Wicking Tee",
+    "Unisex Time Tee", "Unisex Time Sweatshirt", "Unisex Simplicity Hoodie", "Unisex Simplicity Sweatshirt", "Unisex Plain Tee",
+    "Unisex Class Dad Cap", "Unisex Bloom Zip Up", "Unisex Bloom Sweatshirt", "Unisex Bloom Hoodie", "Unisex Be Kind Tee",
+    "Unisex Dad Hat", "Unisex Custom Sweatshirt", "Men's Simplicity Tee", "Unisex Simplicity Tee", "Unisex Long Sleeve", "Unisex Socks",
+    "Men's T-shirt", "Unisex T-shirt"
+];
+export const mensCollection: Product[] = products.filter(p => mensNames.includes(p.name));
+
+// Womens Collection
+const womensNames = [
+    "Unisex Bloom Tee", "Unisex Custom T-shirt", "Unisex Vintage Oversized Hoodie", "Women's Within Reach Mock-Neck Crew Sweatshirt",
+    "Unisex Splatter Drawstring Sweatpants", "Unisex Splatter Straight-Leg Sweatpants", "Unisex Oversized Within Reach Hoodie - Darks",
+    "Unisex Oversized Within Reach Hoodie", "Unisex Oversized Essentials Splatter Hoodie - Darks", "Unisex Oversized Essentials Splatter Hoodie",
+    "Unisex Flower Icon Oversized Hoodie", "Unisex Flower Clinched Sweatpants", "Unisex Flower Straight Leg Sweatpants",
+    "Unisex Chef Straight Leg Sweatpants", "Unisex Chef Drawstring Sweatpants", "Unisex Chef Clinched Sweatpants",
+    "Unisex Chef's Flowers Oversized Hoodie - Lights", "Unisex Chef's Flowers Oversized Hoodie - Darks", "Unisex Oversized Rise Icon Fleece - Lights",
+    "Unisex Rise Icon Clinched Sweatpants", "Unisex Oversized Rise Hoodie - Darks", "Unisex Rise Icon Tee - Lights", "Unisex Rise Icon Tee",
+    "Unisex Rise Icon Sweatpants", "Unisex Oversized Rise Icon Fleece - Darks", "Essential Cotton T-Shirt", "Unisex Oversized Rise Hoodie - Lights",
+    "Unisex Moisture Wicking Tee", "Unisex Time Tee", "Unisex Time Sweatshirt", "Unisex Simplicity Hoodie", "Unisex Simplicity Sweatshirt",
+    "Unisex Plain Tee", "Unisex Class Dad Cap", "Unisex Bloom Zip Up", "Unisex Bloom Sweatshirt", "Unisex Bloom Hoodie", "Unisex Be Kind Tee",
+    "Unisex Dad Hat", "Unisex Custom Sweatshirt", "Women's Simplicity Tee", "Unisex Simplicity Tee", "Unisex Long Sleeve", "Unisex Socks",
+    "Women's T-shirt", "Unisex T-shirt"
+];
+export const womensCollection: Product[] = products.filter(p => womensNames.includes(p.name));
+
+// Kids Collection
+const kidsNames = [
+    "Kid's Game Day Tee", "Toddler's Game Day Tee", "Kid's Simplicity Hoodie", "Toddler's Plain Tee", "Kid's Plain Tee",
+    "Toddler's Long Sleeve Tee", "Kid's Long Sleeve Tee", "Toddler's Simplicity Sweatshirt", "Kid's Embroidered Sweatshirt",
+    "Toddler's Kindergarten Rocks Tee", "Toddler's Pawsitive Tee", "Kid's Pawsitive Tee", "Kid's Bee Cool T-Shirt",
+    "Toddler's Bee Cool T-Shirt", "Kid's Unisex T-shirt", "Custom Toddler's Long Sleeve",
+    "Toddler's Simplicity Tee", "Kid's Unisex T-shirt (Variant)"
+];
+export const kidsCollection: Product[] = products.filter(p => kidsNames.includes(p.name));
+
 
 // Collection metadata
 export const collections: Collection[] = [
@@ -82,6 +130,33 @@ export const collections: Collection[] = [
         description: "Edgy streetwear with splatter paint patterns and 'Within Reach' branding. Vintage-style fits for modern comfort.",
         image: "https://flowouts.com/cdn/shop/files/essentials-collection-banner.jpg",
         products: essentialsWithinReachCollection,
+    },
+    {
+        id: "mens",
+        name: "Men's Collection",
+        slug: "mens",
+        tagline: "Bold & Versatile",
+        description: "Explore our versatile collection for men, featuring comfortable hoodies, sweatpants, and tees.",
+        image: "https://flowouts.com/cdn/shop/files/mens-collection-banner.jpg",
+        products: mensCollection,
+    },
+    {
+        id: "womens",
+        name: "Women's Collection",
+        slug: "womens",
+        tagline: "Chic & Comfy",
+        description: "Discover stylish and comfortable streetwear for women, from oversized hoodies to classic tees.",
+        image: "https://flowouts.com/cdn/shop/files/womens-collection-banner.jpg",
+        products: womensCollection,
+    },
+    {
+        id: "kids-and-toddlers",
+        name: "Kids & Toddlers",
+        slug: "kids-and-toddlers",
+        tagline: "Little Flow",
+        description: "Adorable and durable styles for the little ones. Comfort and cuteness combined.",
+        image: "https://flowouts.com/cdn/shop/files/kids-collection-banner.jpg",
+        products: kidsCollection,
     },
 ];
 

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ShoppingCart, User, Info, Grid3X3, Users, Baby, Shirt } from "lucide-react";
+import { X, ShoppingBag, User, Info, Grid3X3, Shirt } from "lucide-react";
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -10,16 +10,19 @@ interface MobileMenuProps {
 }
 
 const menuItems = [
-    { href: "/products", label: "Shop", icon: ShoppingCart },
-    { href: "/collections", label: "Collections", icon: Grid3X3 },
-    { href: "/about", label: "About", icon: Info },
+    { href: "/products", label: "Shop", icon: ShoppingBag },
 ];
 
 const categoryItems = [
-    { href: "/products?category=T-Shirts", label: "Men", icon: Shirt },
-    { href: "/products?category=Sweatshirts", label: "Women", icon: Users },
-    { href: "/products?category=Kids", label: "Kids", icon: Users },
-    { href: "/products?category=Kids", label: "Toddlers", icon: Baby },
+    { href: "/collections/mens", label: "Men" },
+    { href: "/collections/womens", label: "Women" },
+    { href: "/collections/kids-and-toddlers", label: "Kids & Toddlers" },
+];
+
+const collectionItems = [
+    { href: "/collections/rise", label: "Rise" },
+    { href: "/collections/the-chef", label: "The Chef" },
+    { href: "/collections/essentials", label: "Essentials" },
 ];
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
@@ -84,7 +87,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         {/* Divider */}
                         <div className="mx-6 border-t border-white/10" />
 
-                        {/* Category Links */}
+                        {/* Categories Section */}
                         <div className="p-6">
                             <p className="text-xs text-white/40 uppercase tracking-widest mb-4">Categories</p>
                             <div className="space-y-1">
@@ -93,14 +96,14 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                         key={item.label}
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: 0.25 + index * 0.05 }}
+                                        transition={{ delay: 0.15 + index * 0.05 }}
                                     >
                                         <Link
                                             href={item.href}
                                             onClick={onClose}
                                             className="flex items-center gap-4 py-3 px-4 rounded-xl hover:bg-white/5 transition-colors group"
                                         >
-                                            <item.icon className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors" />
+                                            <Shirt className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors" />
                                             <span className="text-base text-white/70 group-hover:text-white transition-colors">
                                                 {item.label}
                                             </span>
@@ -113,12 +116,61 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         {/* Divider */}
                         <div className="mx-6 border-t border-white/10" />
 
-                        {/* Login Button */}
+                        {/* Collections Section */}
+                        <div className="p-6">
+                            <p className="text-xs text-white/40 uppercase tracking-widest mb-4">Collections</p>
+                            <div className="space-y-1">
+                                {collectionItems.map((item, index) => (
+                                    <motion.div
+                                        key={item.label}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.3 + index * 0.05 }}
+                                    >
+                                        <Link
+                                            href={item.href}
+                                            onClick={onClose}
+                                            className="flex items-center gap-4 py-3 px-4 rounded-xl hover:bg-white/5 transition-colors group"
+                                        >
+                                            <Grid3X3 className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors" />
+                                            <span className="text-base text-white/70 group-hover:text-white transition-colors">
+                                                {item.label}
+                                            </span>
+                                        </Link>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="mx-6 border-t border-white/10" />
+
+                        {/* About Link */}
                         <div className="p-6">
                             <motion.div
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.45 }}
+                            >
+                                <Link
+                                    href="/about"
+                                    onClick={onClose}
+                                    className="flex items-center gap-4 py-4 px-4 rounded-xl hover:bg-white/5 transition-colors group"
+                                >
+                                    <Info className="w-5 h-5 text-white/60 group-hover:text-white transition-colors" />
+                                    <span className="text-lg font-medium text-white/90 group-hover:text-white transition-colors">
+                                        About
+                                    </span>
+                                </Link>
+                            </motion.div>
+                        </div>
+
+                        {/* Login Button */}
+                        <div className="px-6 pb-6">
+                            <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.5 }}
                             >
                                 <Link
                                     href="/auth/signin"

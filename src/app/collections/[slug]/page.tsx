@@ -7,7 +7,7 @@ import { ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getCollectionBySlug, collections } from "@/data/collections";
-import { ProductCard } from "@/components/FeaturedCollection";
+import ProductCard from "@/components/ProductCard";
 
 export default function CollectionPage() {
     const params = useParams();
@@ -23,6 +23,46 @@ export default function CollectionPage() {
                         Back to Collections
                     </Link>
                 </div>
+            </div>
+        );
+    }
+
+    // Check if it's a category page (Mens, Womens, Kids) vs a Brand Collection (Rise, Chef, Essentials)
+    const isCategoryPage = ["mens", "womens", "kids-and-toddlers"].includes(slug);
+
+    if (isCategoryPage) {
+        return (
+            <div className="min-h-screen bg-black text-white">
+                <Header />
+                <main className="pt-32 pb-16 px-6 md:px-12 max-w-7xl mx-auto">
+                    {/* Simple Category Header */}
+                    <div className="mb-12">
+                        <Link href="/" className="text-white/40 hover:text-white text-xs uppercase tracking-widest mb-4 inline-block transition-colors">
+                            Home / {collection.name}
+                        </Link>
+                        <h1 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase mb-2">
+                            {collection.name}
+                        </h1>
+                        <p className="text-white/60">
+                            {collection.products.length} Products
+                        </p>
+                    </div>
+
+                    {/* Products Grid */}
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10">
+                        {collection.products.map((product, index) => (
+                            <motion.div
+                                key={product.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: index * 0.05 }}
+                            >
+                                <ProductCard product={product} />
+                            </motion.div>
+                        ))}
+                    </div>
+                </main>
+                <Footer />
             </div>
         );
     }

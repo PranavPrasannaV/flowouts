@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { products } from "@/data/products";
-import { ProductCard } from "@/components/FeaturedCollection";
+import ProductCard from "@/components/ProductCard";
 import ProductFilters, { FilterButton, FilterState } from "@/components/ProductFilters";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
