@@ -38,22 +38,10 @@ export default function ProductInfo({ product }: ProductInfoProps) {
     const handleAddToCart = async () => {
         setIsAdding(true);
 
-        // Construct variant name (e.g., "Size: M, Color: Black")
-        const variantName = Object.entries(selectedOptions)
-            .map(([key, val]) => `${key}: ${val}`)
-            .join(", ");
-
-        const cartItem = {
-            id: product.id,
-            name: product.name,
-            price: product.price,
-            image: product.images[0],
-            quantity: quantity,
-            color: selectedOptions["Color"] || undefined,
-            size: selectedOptions["Size"] || undefined,
-        };
-
-        addToCart(cartItem);
+        // Add product to cart (quantity is handled by CartContext)
+        for (let i = 0; i < quantity; i++) {
+            addToCart(product);
+        }
 
         // Small delay for animation
         setTimeout(() => {
