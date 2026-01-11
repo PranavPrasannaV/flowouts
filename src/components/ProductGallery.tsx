@@ -13,7 +13,7 @@ export default function ProductGallery({ images }: ProductGalleryProps) {
     const [selectedImage, setSelectedImage] = useState(0);
 
     return (
-        <div className="flex flex-col-reverse md:flex-row gap-4 h-fit sticky top-24">
+        <div className="flex flex-col-reverse md:flex-row gap-4 h-fit md:sticky md:top-24">
             {/* Thumbnails (Desktop: Left Vertical, Mobile: Hidden/Bottom) */}
             <div className="hidden md:flex flex-col gap-4 w-20 shrink-0">
                 {images.map((image, index) => (
