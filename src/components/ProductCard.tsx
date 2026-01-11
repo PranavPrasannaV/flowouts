@@ -40,7 +40,7 @@ export default function ProductCard({ product }: { product: Product }) {
                                 e.preventDefault();
                                 setIsQuickAddOpen(true);
                             }}
-                            className="w-full py-2.5 md:py-3 bg-white text-black text-xs font-bold uppercase tracking-widest shadow-lg hover:bg-neutral-200 active:bg-neutral-300 transition-colors rounded"
+                            className="w-full py-2.5 md:py-3 bg-black text-white text-xs font-bold uppercase tracking-widest shadow-lg hover:bg-neutral-800 active:bg-neutral-700 transition-colors rounded"
                         >
                             Quick Add
                         </button>
