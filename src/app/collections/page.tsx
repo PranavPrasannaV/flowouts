@@ -26,6 +26,15 @@ const collectionCards = [
         hoverGlow: "hover:shadow-emerald-500/30",
     },
     {
+        id: "the-basics",
+        name: "The Basics",
+        tagline: "Essential Comfort",
+        gradient: "from-slate-400/20 via-gray-500/10 to-zinc-500/20",
+        textColor: "text-slate-100",
+        accentColor: "bg-slate-400",
+        hoverGlow: "hover:shadow-slate-400/30",
+    },
+    {
         id: "essentials",
         name: "Essentials: Within Reach",
         tagline: "Premium Basics, Accessible Style",
@@ -58,7 +67,7 @@ export default function CollectionsPage() {
                 </motion.div>
 
                 {/* Collection Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
                     {collectionCards.map((card, index) => {
                         const collection = collections.find((c) => c.id === card.id);
                         const productCount = collection?.products.length || 0;

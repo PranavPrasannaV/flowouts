@@ -15,80 +15,80 @@ export interface Product {
 }
 
 export const products: Product[] = [
-    // --- Rise Collection (Lights) ---
+    // --- Rise Collection ---
     {
         id: "1",
-        name: "Unisex Oversized Rise Icon Fleece - Lights",
-        price: "$36.00 USD",
+        name: "Unisex Oversized Rise Hoodie - Darks",
+        price: "$27.20 USD",
         category: "Hoodies",
-        description: "<p>The Rise Icon Fleece is a staple for your wardrobe. Featuring a puff print Rise Icon logo on the left chest and a large puff print Rise Icon logo on the back. Made with a 100% cotton face and 65% cotton, 35% polyester blend, this hoodie is sure to keep you warm and comfortable.</p><ul><li>100% cotton face</li><li>65% cotton, 35% polyester</li><li>Fabric weight: 8.5 oz/y² (288.2 g/m²)</li><li>Tightly knit 3-end fleece</li><li>Side-seamed construction</li><li>Self-fabric patch on the back</li><li>Double-needle stitched rib collar, cuffs, and hem</li></ul>",
+        description: "<p>Item Number: R00286. Gender: Unisex. Model: Loose. Fabric: 42% cotton, 53% polyester, 5% other fibers. Fabric Weight: 10.3 oz/yd² (350 g/m²). Fabric Thickness: Thick. Fabric Stretch: Slight Stretch. Care Instructions: Machine wash at 30°C (gentle cycle); Do not bleach; Tumble dry low; Iron at low temperature, avoid ironing on print.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/d9ec22ba9d82443094e50792f3e51d68.png?v=1763666436&width=533",
-            "https://flowouts.com/cdn/shop/files/67f73add5eb2434680872895690b6399.png?v=1763666439&width=533",
-            "https://flowouts.com/cdn/shop/files/84f9b876537b42669e29a99285038c7b.png?v=1763666442&width=533"
+            "https://flowouts.com/cdn/shop/files/b9418098ab8c4751a88b0b4217759216.png",
+            "https://flowouts.com/cdn/shop/files/907961e4e8b54011b6e4e9375605eba6.png"
         ],
         options: [
-            { name: "Size", values: ["S", "M", "L", "XL", "2XL", "3XL"] },
-            { name: "Color", values: ["White", "Sport Grey", "Sand"] }
+            { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
+            { name: "Color", values: ["Black", "Brown", "Coffee", "Navy Blue", "Eden Green", "Gray"] }
         ]
     },
     {
         id: "2",
-        name: "Unisex Rise Icon Clinched Sweatpants",
-        price: "$35.50 USD",
-        category: "Pants",
-        description: "<p>The Rise Icon Clinched Sweatpants are a perfect match for the Rise Icon Fleece. Featuring a puff print Rise Icon logo on the left thigh and a clinched bottom. Made with a 100% cotton face and 65% cotton, 35% polyester blend, these sweatpants are sure to keep you warm and comfortable.</p><ul><li>100% cotton face</li><li>65% cotton, 35% polyester</li><li>Charcoal Heather is 55% cotton, 45% polyester</li><li>Fabric weight: 8.5 oz/y² (288.2 g/m²)</li><li>Tightly knit 3-end fleece</li><li>5-thread stitching</li><li>Cuffed and side-seamed legs</li><li>Elastic inside the waistband</li><li>Flat drawstrings in a matching color</li><li>2 cross pockets in front</li><li>1 top-stitched patch pocket on the back of the right leg</li><li>Ribbed waist, cuffs, and gusset at crotch</li></ul>",
+        name: "Unisex Oversized Rise Icon Fleece - Lights",
+        price: "$25.70 USD",
+        category: "Hoodies",
+        description: "<p>Item Number: R00286. Gender: Unisex. Model: Loose. Fabric: 42% cotton, 53% polyester, 5% other fibers. Fabric Weight: 10.3 oz/yd² (350 g/m²). Fabric Thickness: Thick. Fabric Stretch: Slight Stretch. Care Instructions: Machine wash at 30°C (gentle cycle); Do not bleach; Tumble dry low; Iron at low temperature, avoid ironing on print; Do not dry clean.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/dc29e20528d648fcb483d2b18a994e90.png?v=1763666060&width=533",
-            "https://flowouts.com/cdn/shop/files/be0613a7b69c4c1aab78772a1df6ccf7.png?v=1763666063&width=533",
-            "https://flowouts.com/cdn/shop/files/a25ec516480242278daae7c08a946cf6.png?v=1763666066&width=533"
+            "https://flowouts.com/cdn/shop/files/d9ec22ba9d82443094e50792f3e51d68.png",
+            "https://flowouts.com/cdn/shop/files/40267c63803348b99b16ea5dcd771f66.png"
         ],
         options: [
             { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
-            { name: "Color", values: ["Black", "Sport Grey", "Navy"] }
+            { name: "Color", values: ["White", "Oat Gray", "Flower Gray", "Gray Apricot", "Dark Purple", "Medium Blue", "Medium Green"] }
         ]
     },
     {
         id: "3",
-        name: "Essential Cotton T-Shirt",
-        price: "$21.00 USD",
-        category: "T-Shirts",
-        description: "<p>The Essential Cotton T-Shirt is a staple for your wardrobe. Made with 100% cotton, this t-shirt is sure to keep you comfortable.</p><ul><li>100% cotton</li><li>Fabric weight: 5.0–5.3 oz/yd² (170-180 g/m²)</li><li>Open-end yarn</li><li>Tubular fabric</li><li>Taped neck and shoulders</li><li>Double seam at sleeves and bottom hem</li></ul>",
+        name: "Unisex Rise Icon Clinched Sweatpants",
+        price: "$27.65 USD",
+        category: "Pants",
+        description: "<p>Item Number: AMK002. Gender: Unisex. Model: Loose. Fabric: 100% cotton. Fabric Weight: 10.0 oz/yd² (340 g/m²). Care Instructions: Machine wash at 30°C (gentle cycle); Do not bleach; Tumble dry low; Iron at low temperature, avoid ironing on print; Do not dry clean.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/0a4a12781a684c8eb04a756176c28725.png?v=1766260932&width=533",
-            "https://flowouts.com/cdn/shop/files/efc8a51372864b858444318721c548d8.png?v=1766260935&width=533"
+            "https://flowouts.com/cdn/shop/files/dc29e20528d648fcb483d2b18a994e90.png",
+            "https://flowouts.com/cdn/shop/files/7071f9935e9c4c4d9c773cd77c94a0dd.png"
         ],
         options: [
-            { name: "Size", values: ["S", "M", "L", "XL", "2XL", "3XL"] },
-            { name: "Color", values: ["Black", "White", "Navy", "Sport Grey", "Sand"] }
+            { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
+            { name: "Color", values: ["Black", "Apricot", "Light Gray"] }
         ]
     },
     {
         id: "4",
-        name: "Unisex Oversized Rise Hoodie - Lights",
-        price: "$36.00 USD",
-        category: "Hoodies",
-        description: "<p>The Oversized Rise Hoodie is a staple for your wardrobe. Featuring a puff print Rise logo on the center chest. Made with a 100% cotton face and 65% cotton, 35% polyester blend, this hoodie is sure to keep you warm and comfortable.</p>",
+        name: "Essential Cotton T-Shirt",
+        price: "$24.00 USD",
+        category: "T-Shirts",
+        description: "<p>Item Number: RT0063. Gender: Unisex. Model: Regular. Fabric: 100% cotton. Fabric Weight: 7.7 oz/yd² (260 g/m²). Fabric Thickness: Moderate. Care Instructions: Machine wash at 30°C (gentle cycle); Do not bleach; Tumble dry low; Iron at low temperature, avoid ironing on print; Do not dry clean. Features: Basics, Casual, Preppy, Sporty, Daily.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/d9ec22ba9d82443094e50792f3e51d68.png?v=1763666436&width=533"
+            "https://flowouts.com/cdn/shop/files/2d9ba9fd6f434953a8a3b1861eed84be.png",
+            "https://flowouts.com/cdn/shop/files/4b6e6d39bea5499caf8d461877f96291.png"
         ],
         options: [
-            { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
-            { name: "Color", values: ["White", "Sport Grey", "Sand"] }
+            { name: "Size", values: ["S", "M", "L", "XL", "2XL", "3XL"] },
+            { name: "Color", values: ["White", "White Gray", "Apricot", "Blue"] }
         ]
     },
     {
         id: "5",
-        name: "Unisex Oversized Rise Hoodie - Darks",
-        price: "$36.00 USD",
+        name: "Unisex Oversized Rise Hoodie - Lights",
+        price: "$27.20 USD",
         category: "Hoodies",
-        description: "<p>The Oversized Rise Hoodie is a staple for your wardrobe. Featuring a puff print Rise logo on the center chest. Made with a 100% cotton face and 65% cotton, 35% polyester blend, this hoodie is sure to keep you warm and comfortable.</p>",
+        description: "<p>Item Number: R00286. Gender: Unisex. Model: Loose. Fabric: 42% cotton, 53% polyester, 5% other fibers. Fabric Weight: 10.3 oz/yd² (350 g/m²). Fabric Thickness: Thick. Fabric Stretch: Slight Stretch. Care Instructions: Machine wash at 30°C (gentle cycle); Do not bleach; Tumble dry low; Iron at low temperature, avoid ironing on print; Do not dry clean.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/d9ec22ba9d82443094e50792f3e51d68.png?v=1763666436&width=533"
+            "https://flowouts.com/cdn/shop/files/596614028ea04517919bef07e59c9a8a.png",
+            "https://flowouts.com/cdn/shop/files/d29951fbf1ac43eca8219e3b0ea20e81.png"
         ],
         options: [
             { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
-            { name: "Color", values: ["Black", "Navy", "Charcoal Heather", "Carbon Grey"] }
+            { name: "Color", values: ["Oat Gray", "White", "Flower Gray", "Gray Apricot", "Dark Purple", "Medium Blue", "Medium Green"] }
         ]
     },
     {
@@ -96,13 +96,14 @@ export const products: Product[] = [
         name: "Unisex Rise Icon Tee - Lights",
         price: "$21.00 USD",
         category: "T-Shirts",
-        description: "<p>The Rise Icon Tee is a staple for your wardrobe. Featuring a puff print Rise Icon logo on the left chest. Made with 100% cotton, this t-shirt is sure to keep you comfortable.</p>",
+        description: "<p>Item Number: RT0063. Gender: Unisex. Model: Regular. Fabric: 100% cotton. Fabric Weight: 7.7 oz/yd² (260 g/m²). Fabric Thickness: Moderate. Care Instructions: Machine wash at 30°C (gentle cycle); Do not bleach; Tumble dry low; Iron at low temperature, avoid ironing on print; Do not dry clean. Features: Basics, Casual, Preppy, Sporty, Daily.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/d9ec22ba9d82443094e50792f3e51d68.png?v=1763666436&width=533"
+            "https://flowouts.com/cdn/shop/files/4b0398033c4747ed81b9f51ff593c481.png",
+            "https://flowouts.com/cdn/shop/files/b3f5cccac3a945ab964524f2d9679e36.png"
         ],
         options: [
-            { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
-            { name: "Color", values: ["White", "Sport Grey", "Sand"] }
+            { name: "Size", values: ["S", "M", "L", "XL", "2XL", "3XL"] },
+            { name: "Color", values: ["White", "White Gray", "Apricot", "Blue"] }
         ]
     },
     {
@@ -110,155 +111,165 @@ export const products: Product[] = [
         name: "Unisex Rise Icon Tee",
         price: "$21.00 USD",
         category: "T-Shirts",
-        description: "<p>The Rise Icon Tee is a staple for your wardrobe. Featuring a puff print Rise Icon logo on the left chest. Made with 100% cotton, this t-shirt is sure to keep you comfortable.</p>",
+        description: "<p>Item Number: RT0063. Gender: Unisex. Model: Regular. Fabric: 100% cotton. Fabric Weight: 7.7 oz/yd² (260 g/m²). Fabric Thickness: Moderate. Care Instructions: Machine wash at 30°C (gentle cycle); Do not bleach; Tumble dry low; Iron at low temperature, avoid ironing on print; Do not dry clean. Features: Basics, Casual, Preppy, Sporty, Daily.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/d9ec22ba9d82443094e50792f3e51d68.png?v=1763666436&width=533"
+            "https://flowouts.com/cdn/shop/files/312d582361e844eca762dae713dad780.png",
+            "https://flowouts.com/cdn/shop/files/91aea1e62aa0455888397a8a90bd555c.png"
         ],
         options: [
-            { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
-            { name: "Color", values: ["Black", "Navy", "Dark Heather"] }
+            { name: "Size", values: ["S", "M", "L", "XL", "2XL", "3XL"] },
+            { name: "Color", values: ["Black", "Dark Gray", "Navy Blue"] }
         ]
     },
     {
         id: "8",
         name: "Unisex Rise Icon Sweatpants",
-        price: "$35.50 USD",
+        price: "$24.65 USD",
         category: "Pants",
-        description: "<p>The Rise Icon Sweatpants are a perfect match for the Rise Icon Fleece. Featuring a puff print Rise Icon logo on the left thigh and a open bottom. Made with a 100% cotton face and 65% cotton, 35% polyester blend, these sweatpants are sure to keep you warm and comfortable.</p>",
+        description: "<p>Item Number: RK0034. Gender: Unisex. Model: Loose. Fabric: 85% cotton, 15% polyester. Fabric Weight: 9.4 oz/yd² (320 g/m²). Fabric Thickness: Moderate. Care Instructions: Machine wash at 30°C (gentle cycle); Do not bleach; Tumble dry low; Iron at low temperature, avoid ironing on print; Do not dry clean. Features: Basics, Casual, Preppy, Sporty.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/dc29e20528d648fcb483d2b18a994e90.png?v=1763666060&width=533"
+            "https://flowouts.com/cdn/shop/files/4819f561815b48289777b7a8bc708771.png",
+            "https://flowouts.com/cdn/shop/files/a42bfb190bbe443194e5eb891b546c2d.png"
         ],
         options: [
             { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
-            { name: "Color", values: ["Black", "Sport Grey", "Navy"] }
+            { name: "Color", values: ["Black", "Flower Gray", "Navy Blue"] }
         ]
     },
     {
         id: "9",
         name: "Unisex Oversized Rise Icon Fleece - Darks",
-        price: "$36.00 USD",
+        price: "$25.70 USD",
         category: "Hoodies",
-        description: "<p>The Rise Icon Fleece is a staple for your wardrobe. Featuring a puff print Rise Icon logo on the left chest and a large puff print Rise Icon logo on the back. Made with a 100% cotton face and 65% cotton, 35% polyester blend, this hoodie is sure to keep you warm and comfortable.</p>",
+        description: "<p>Gender: Unisex. Model: Loose. Fabric: 42% cotton, 53% polyester, 5% other fibers. Fabric Weight: 10.3 oz/yd² (350 g/m²). Fabric Thickness: Thick. Fabric Stretch: Slight Stretch. Care Instructions: Machine wash at 30°C (gentle cycle); Do not bleach; Tumble dry low; Iron at low temperature, avoid ironing on print; Do not dry clean.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/d9ec22ba9d82443094e50792f3e51d68.png?v=1763666436&width=533"
+            "https://flowouts.com/cdn/shop/files/873ea83a2e7541bcbb2736758f700fb0.png",
+            "https://flowouts.com/cdn/shop/files/30a959ebeca64ec5ae4d1d2e12c337ad.png"
         ],
         options: [
             { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
-            { name: "Color", values: ["Black", "Navy", "Charcoal Heather", "Carbon Grey"] }
+            { name: "Color", values: ["Black", "Eden Green", "Navy Blue", "Coffee", "Brown", "Gray"] }
         ]
     },
     // --- The Chef Collection ---
     {
         id: "10",
         name: "Unisex Flower Icon Oversized Hoodie",
-        price: "$45.99 USD",
+        price: "$25.70 USD",
         category: "Hoodies",
         description: "<p>Chef's Flowers. A collection inspired by the beauty of nature and the art of cooking. This hoodie features a large puff print flower icon on the back and a small puff print flower icon on the left chest.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/d9ec22ba9d82443094e50792f3e51d68.png?v=1763666436&width=533"
+            "https://flowouts.com/cdn/shop/files/671724b27dde4ab1bba007dd36123c0a.png",
+            "https://flowouts.com/cdn/shop/files/0de50e6dae3d417fb64d8072deec60be.png"
         ],
         options: [
-            { name: "Size", values: ["S", "M", "L", "XL", "2XL", "3XL"] },
-            { name: "Color", values: ["Black", "Navy", "Carbon Grey", "Maroon"] }
+            { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
+            { name: "Color", values: ["Black", "White", "Oat Gray", "Flower Gray", "Gray Apricot", "Medium Blue", "Navy Blue", "Eden Green", "Gray"] }
         ]
     },
     {
         id: "11",
         name: "Unisex Flower Clinched Sweatpants",
-        price: "$35.50 USD",
+        price: "$27.65 USD",
         category: "Pants",
         description: "<p>Chef's Flowers. A collection inspired by the beauty of nature and the art of cooking. These sweatpants feature a puff print flower icon on the left thigh.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/dc29e20528d648fcb483d2b18a994e90.png?v=1763666060&width=533"
+            "https://flowouts.com/cdn/shop/files/b66c2b0bf18941808ea70aeccdf68100.png",
+            "https://flowouts.com/cdn/shop/files/58f5144dd8f3474fbc5333f8c5a0251a.png"
         ],
         options: [
             { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
-            { name: "Color", values: ["Black", "Navy", "Carbon Grey"] }
+            { name: "Color", values: ["Mild Apricot", "Light Gray", "Black"] }
         ]
     },
     {
         id: "12",
         name: "Unisex Flower Straight Leg Sweatpants",
-        price: "$35.50 USD",
+        price: "$24.65 USD",
         category: "Pants",
         description: "<p>Chef's Flowers. A collection inspired by the beauty of nature and the art of cooking. These sweatpants feature a puff print flower icon on the left thigh.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/dc29e20528d648fcb483d2b18a994e90.png?v=1763666060&width=533"
+            "https://flowouts.com/cdn/shop/files/cefd55d96f8a40f38b28b527e5fff540.png",
+            "https://flowouts.com/cdn/shop/files/32fde7381b814ab4bc74ec508990ccba.png"
         ],
         options: [
             { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
-            { name: "Color", values: ["Black", "Navy", "Carbon Grey"] }
+            { name: "Color", values: ["Black", "Flower Gray", "Navy Blue"] }
         ]
     },
     {
         id: "13",
         name: "Unisex Chef Straight Leg Sweatpants",
-        price: "$35.50 USD",
+        price: "$24.65 USD",
         category: "Pants",
         description: "<p>The Chef Collection. Featuring a puff print Chef Hat icon on the left thigh.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/dc29e20528d648fcb483d2b18a994e90.png?v=1763666060&width=533"
+            "https://flowouts.com/cdn/shop/files/216b398c4c504279bb4401743fa3e1f2.png",
+            "https://flowouts.com/cdn/shop/files/b3b003fb66ee4c858f3f261daf059b41.png"
         ],
         options: [
             { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
-            { name: "Color", values: ["Black", "Navy", "Carbon Grey", "Sport Grey"] }
+            { name: "Color", values: ["Black", "Flower Gray", "Navy Blue"] }
         ]
     },
     {
         id: "14",
         name: "Unisex Chef Drawstring Sweatpants",
-        price: "$35.50 USD",
+        price: "$23.60 USD",
         category: "Pants",
         description: "<p>The Chef Collection. Featuring a puff print Chef Hat icon on the left thigh.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/dc29e20528d648fcb483d2b18a994e90.png?v=1763666060&width=533"
+            "https://flowouts.com/cdn/shop/files/11c8946cc2aa4274b2f621d0063cc878.png",
+            "https://flowouts.com/cdn/shop/files/c6b0763a29664873b556c43107ed41d8.png"
         ],
         options: [
-            { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
-            { name: "Color", values: ["Black", "Navy", "Carbon Grey", "Sport Grey"] }
+            { name: "Size", values: ["S", "M", "L", "XL", "2XL", "3XL"] },
+            { name: "Color", values: ["Black", "Navy Blue"] }
         ]
     },
     {
         id: "15",
         name: "Unisex Chef Clinched Sweatpants",
-        price: "$35.50 USD",
+        price: "$27.65 USD",
         category: "Pants",
         description: "<p>The Chef Collection. Featuring a puff print Chef Hat icon on the left thigh.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/dc29e20528d648fcb483d2b18a994e90.png?v=1763666060&width=533"
+            "https://flowouts.com/cdn/shop/files/a87a995820f4496cb3bbcec372023a4c.png",
+            "https://flowouts.com/cdn/shop/files/bbebaddfd0474ce4baee46561b5490d0.png"
         ],
         options: [
             { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
-            { name: "Color", values: ["Black", "Navy", "Carbon Grey", "Sport Grey"] }
+            { name: "Color", values: ["White", "Cream Apricot", "Black", "Medium Blue", "Gray Coffee", "Gray", "Eden Green"] }
         ]
     },
-    // BATCH_1_PLACEHOLDER
     {
         id: "16",
         name: "Unisex Chef's Flowers Oversized Hoodie - Lights",
-        price: "$45.99 USD",
+        price: "$27.20 USD",
         category: "Hoodies",
         description: "<p>Chef's Flowers. A collection inspired by the beauty of nature and the art of cooking. This hoodie features a large puff print flower icon on the back and a small puff print flower icon on the left chest.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/d9ec22ba9d82443094e50792f3e51d68.png?v=1763666436&width=533"
+            "https://flowouts.com/cdn/shop/files/e69a84747b0647a8ab85a55b0d3ecf16.png",
+            "https://flowouts.com/cdn/shop/files/457eaef9b0614c6ba64d2195caae2474.png"
         ],
         options: [
-            { name: "Size", values: ["S", "M", "L", "XL", "2XL", "3XL"] },
-            { name: "Color", values: ["White", "Sport Grey", "Sand", "Light Pink", "Light Blue"] }
+            { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
+            { name: "Color", values: ["White", "Oat Gray", "Flower Gray", "Gray Apricot", "Dark Purple", "Medium Blue"] }
         ]
     },
     {
         id: "17",
         name: "Unisex Chef's Flowers Oversized Hoodie - Darks",
-        price: "$45.99 USD",
+        price: "$27.20 USD",
         category: "Hoodies",
         description: "<p>Chef's Flowers. A collection inspired by the beauty of nature and the art of cooking. This hoodie features a large puff print flower icon on the back and a small puff print flower icon on the left chest.</p>",
         images: [
-            "https://flowouts.com/cdn/shop/files/d9ec22ba9d82443094e50792f3e51d68.png?v=1763666436&width=533"
+            "https://flowouts.com/cdn/shop/files/c50190668a55401f87a19fa434a429a5.png",
+            "https://flowouts.com/cdn/shop/files/b830fb04c28b4a8f93a6a2628c7ca66c.png"
         ],
         options: [
-            { name: "Size", values: ["S", "M", "L", "XL", "2XL", "3XL"] },
-            { name: "Color", values: ["Black", "Navy", "Carbon Grey", "Maroon"] }
+            { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
+            { name: "Color", values: ["Black", "Klein Blue", "Gray", "Brown", "Navy Blue", "Eden Green"] }
         ]
     },
     // --- Essentials Collection ---
@@ -1048,6 +1059,52 @@ export const products: Product[] = [
         options: [
             { name: "Size", values: ["S", "M", "L", "XL"] },
             { name: "Color", values: ["White"] }
+        ]
+    },
+    // --- The Basics Collection ---
+    {
+        id: "74",
+        name: "Unisex Clinched Sweatpants",
+        price: "$27.65 USD",
+        category: "Pants",
+        description: "<p>The Basics. Essential comfort for everyday wear. These clinched sweatpants feature a relaxed fit with cuffed bottoms.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/e80ca858021f4159949106c0392d1a52_27d9cf03-2de7-43be-8c73-f9d716824d38.png",
+            "https://flowouts.com/cdn/shop/files/2f3c051ccd714c23a4c7d7276f0c3f02_50729c78-2e98-423e-ba2d-34b8d08c0872.png"
+        ],
+        options: [
+            { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
+            { name: "Color", values: ["Black", "Apricot", "Light Gray"] }
+        ]
+    },
+    {
+        id: "75",
+        name: "Unisex Straight Leg Sweatpants",
+        price: "$24.65 USD",
+        category: "Pants",
+        description: "<p>The Basics. Essential comfort for everyday wear. These straight leg sweatpants feature a relaxed fit with a clean silhouette.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/0f0c3637a27147919a95b228e9a8aeec.png",
+            "https://flowouts.com/cdn/shop/files/b02e532d355d4e5faf3f82a8cf92f1b1.png"
+        ],
+        options: [
+            { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
+            { name: "Color", values: ["Black"] }
+        ]
+    },
+    {
+        id: "76",
+        name: "Unisex Oversized Fleece",
+        price: "$25.70 USD",
+        category: "Hoodies",
+        description: "<p>The Basics. Essential comfort for everyday wear. This oversized fleece hoodie features a relaxed fit for maximum comfort.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/1180d149ba504b309d926ecbb119a5b6.png",
+            "https://flowouts.com/cdn/shop/files/2de780eb087d47d3ac319d539402ee08.png"
+        ],
+        options: [
+            { name: "Size", values: ["S", "M", "L", "XL", "2XL"] },
+            { name: "Color", values: ["White", "Oat Gray", "Flower Gray", "Gray Apricot", "Dark Purple", "Medium Blue"] }
         ]
     }
 ];

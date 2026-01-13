@@ -12,11 +12,11 @@ export interface Collection {
 
 // Rise Collection
 const riseNames = [
+    "Unisex Oversized Rise Hoodie - Darks",
     "Unisex Oversized Rise Icon Fleece - Lights",
     "Unisex Rise Icon Clinched Sweatpants",
     "Essential Cotton T-Shirt",
     "Unisex Oversized Rise Hoodie - Lights",
-    "Unisex Oversized Rise Hoodie - Darks",
     "Unisex Rise Icon Tee - Lights",
     "Unisex Rise Icon Tee",
     "Unisex Rise Icon Sweatpants",
@@ -36,6 +36,14 @@ const chefNames = [
     "Unisex Chef's Flowers Oversized Hoodie - Darks"
 ];
 export const chefCollection: Product[] = products.filter(p => chefNames.includes(p.name));
+
+// The Basics Collection
+const basicsNames = [
+    "Unisex Clinched Sweatpants",
+    "Unisex Straight Leg Sweatpants",
+    "Unisex Oversized Fleece"
+];
+export const basicsCollection: Product[] = products.filter(p => basicsNames.includes(p.name));
 
 // Essentials: Within Reach Collection
 const essentialsNames = [
@@ -121,6 +129,15 @@ export const collections: Collection[] = [
         description: "Chef-inspired streetwear with iconic chef hats and floral designs. Bold, comfortable, and uniquely crafted.",
         image: "https://flowouts.com/cdn/shop/files/chef-collection-banner.jpg",
         products: chefCollection,
+    },
+    {
+        id: "the-basics",
+        name: "The Basics",
+        slug: "the-basics",
+        tagline: "Essential Comfort",
+        description: "Clean, minimalist essentials for everyday wear. Comfortable fits and quality fabrics you can rely on.",
+        image: "https://flowouts.com/cdn/shop/files/1180d149ba504b309d926ecbb119a5b6.png",
+        products: basicsCollection,
     },
     {
         id: "essentials",
