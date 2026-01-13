@@ -35,6 +35,7 @@ const collectionsDropdown = [
     { href: "/collections/rise", label: "Rise" },
     { href: "/collections/the-chef", label: "The Chef" },
     { href: "/collections/essentials", label: "Essentials" },
+    { href: "/collections/the-basics", label: "The Basics" },
 ];
 
 export default function Header({ animationDelay = 0 }: HeaderProps) {

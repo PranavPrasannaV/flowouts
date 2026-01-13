@@ -130,6 +130,7 @@ export function ParticleTextEffect({
     const hasTransitionedRef = useRef(false)
     const logoImageRef = useRef<HTMLImageElement | null>(null)
     const isInitializedRef = useRef(false)
+    const wordsRef = useRef(words)
 
     const pixelSteps = 4
     const drawAsPoints = true
@@ -331,7 +332,7 @@ export function ParticleTextEffect({
                         loadLogoAsParticles(logoImageRef.current, canvas, true);
                         isInitializedRef.current = true;
                     } else if (hasTransitionedRef.current) {
-                        nextWord(words[0], canvas);
+                        nextWord(wordsRef.current[0], canvas);
                     }
                 }
             }
@@ -350,9 +351,9 @@ export function ParticleTextEffect({
 
         // Schedule transition from logo to text
         const transitionTimer = setTimeout(() => {
-            if (canvas.width > 0) {
+            if (canvas.width > 0 && !hasTransitionedRef.current) {
                 hasTransitionedRef.current = true;
-                nextWord(words[0], canvas);
+                nextWord(wordsRef.current[0], canvas);
             }
         }, transitionDelay);
 
@@ -377,7 +378,8 @@ export function ParticleTextEffect({
             canvas.removeEventListener("mousedown", handleMouseDown)
             canvas.removeEventListener("mouseup", handleMouseUp)
         }
-    }, [words, logoSrc, transitionDelay])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [logoSrc, transitionDelay])
 
     return (
         <div className="w-full flex justify-center items-center">
