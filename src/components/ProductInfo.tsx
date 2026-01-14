@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Product, ProductOption } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import { ShoppingBag, Minus, Plus } from "lucide-react";
@@ -9,9 +9,10 @@ import { cn } from "@/lib/utils";
 
 interface ProductInfoProps {
     product: Product;
+    onColorChange?: (color: string) => void;
 }
 
-export default function ProductInfo({ product }: ProductInfoProps) {
+export default function ProductInfo({ product, onColorChange }: ProductInfoProps) {
     const { addToCart, toggleCart } = useCart();
 
     // Initialize selected options (default to first value of each option)
@@ -28,11 +29,24 @@ export default function ProductInfo({ product }: ProductInfoProps) {
     const [quantity, setQuantity] = useState(1);
     const [isAdding, setIsAdding] = useState(false);
 
+    // Notify parent of initial color on mount
+    useEffect(() => {
+        const colorOption = product.options?.find(opt => opt.name === "Color");
+        if (colorOption && colorOption.values.length > 0 && onColorChange) {
+            onColorChange(colorOption.values[0]);
+        }
+    }, [product.options, onColorChange]);
+
     const handleOptionSelect = (optionName: string, value: string) => {
         setSelectedOptions(prev => ({
             ...prev,
             [optionName]: value
         }));
+
+        // If color is being changed, notify parent
+        if (optionName === "Color" && onColorChange) {
+            onColorChange(value);
+        }
     };
 
     const handleAddToCart = async () => {
