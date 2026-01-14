@@ -11,6 +11,26 @@ interface ProductGalleryProps {
     selectedColor?: string | null;
 }
 
+// Shimmer loading skeleton component
+function ImageSkeleton({ className }: { className?: string }) {
+    return (
+        <div className={cn("absolute inset-0 overflow-hidden", className)}>
+            <div className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800" />
+            <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 dark:via-white/10 to-transparent"
+                animate={{
+                    x: ["-100%", "100%"],
+                }}
+                transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
+            />
+        </div>
+    );
+}
+
 export default function ProductGallery({ images, selectedColor }: ProductGalleryProps) {
     const [selectedImage, setSelectedImage] = useState(0);
     const [thumbnailStart, setThumbnailStart] = useState(0);
@@ -18,9 +38,18 @@ export default function ProductGallery({ images, selectedColor }: ProductGallery
     const isColorChangeRef = useRef(false);
     const prevColorRef = useRef(selectedColor);
 
+    // Loading states
+    const [mainImageLoaded, setMainImageLoaded] = useState(false);
+    const [loadedThumbnails, setLoadedThumbnails] = useState<Set<number>>(new Set());
+
     const visibleThumbnails = 4;
     const canScrollLeft = thumbnailStart > 0;
     const canScrollRight = thumbnailStart + visibleThumbnails < images.length;
+
+    // Reset main image loading state when selected image changes
+    useEffect(() => {
+        setMainImageLoaded(false);
+    }, [selectedImage, selectedColor]);
 
     // When color changes, reset to first image without triggering thumbnail animation
     useEffect(() => {
@@ -28,6 +57,7 @@ export default function ProductGallery({ images, selectedColor }: ProductGallery
             prevColorRef.current = selectedColor;
             isColorChangeRef.current = true;
             setSelectedImage(0);
+            setLoadedThumbnails(new Set()); // Reset thumbnail loading states
             // Don't change thumbnailStart or slideDirection - keep thumbnails where they are
         }
     }, [selectedColor]);
@@ -56,6 +86,10 @@ export default function ProductGallery({ images, selectedColor }: ProductGallery
             setSlideDirection(wrappedIndex > selectedImage ? 1 : -1);
             setThumbnailStart(newStart);
         }
+    };
+
+    const handleThumbnailLoad = (index: number) => {
+        setLoadedThumbnails(prev => new Set(prev).add(index));
     };
 
     const visibleImages = images.slice(thumbnailStart, thumbnailStart + visibleThumbnails);
@@ -109,6 +143,7 @@ export default function ProductGallery({ images, selectedColor }: ProductGallery
                             >
                                 {visibleImages.map((image, index) => {
                                     const actualIndex = thumbnailStart + index;
+                                    const isLoaded = loadedThumbnails.has(actualIndex);
                                     return (
                                         <button
                                             key={actualIndex}
@@ -120,11 +155,17 @@ export default function ProductGallery({ images, selectedColor }: ProductGallery
                                                     : "border-transparent opacity-70 hover:opacity-100"
                                             )}
                                         >
+                                            {!isLoaded && <ImageSkeleton />}
                                             <Image
                                                 src={image}
                                                 alt={`Product view ${actualIndex + 1}`}
                                                 fill
-                                                className="object-cover"
+                                                unoptimized
+                                                className={cn(
+                                                    "object-cover transition-opacity duration-300",
+                                                    isLoaded ? "opacity-100" : "opacity-0"
+                                                )}
+                                                onLoad={() => handleThumbnailLoad(actualIndex)}
                                             />
                                         </button>
                                     );
@@ -179,12 +220,26 @@ export default function ProductGallery({ images, selectedColor }: ProductGallery
                 )}
             </div>
 
-            {/* Main Image - Fixed dimensions, no background */}
+            {/* Main Image - Fixed dimensions with loading skeleton */}
             <div className="relative w-full h-[400px] md:h-[600px]">
+                {/* Loading skeleton for main image */}
+                <AnimatePresence>
+                    {!mainImageLoaded && (
+                        <motion.div
+                            initial={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="absolute inset-0 rounded-2xl overflow-hidden z-10"
+                        >
+                            <ImageSkeleton className="rounded-2xl" />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
                 <motion.div
-                    key={selectedImage}
+                    key={`${selectedImage}-${selectedColor}`}
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    animate={{ opacity: mainImageLoaded ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
                     className="relative w-full h-full"
                 >
@@ -192,52 +247,63 @@ export default function ProductGallery({ images, selectedColor }: ProductGallery
                         src={images[selectedImage]}
                         alt="Product main view"
                         fill
+                        unoptimized
                         className="object-contain rounded-2xl"
                         priority
+                        onLoad={() => setMainImageLoaded(true)}
                     />
                 </motion.div>
 
                 {/* Navigation arrows on main image */}
                 <button
                     onClick={() => navigateToImage(selectedImage - 1)}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-black/80 hover:bg-white dark:hover:bg-black transition-all shadow-lg"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-black/80 hover:bg-white dark:hover:bg-black transition-all shadow-lg z-20"
                 >
                     <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                     onClick={() => navigateToImage(selectedImage + 1)}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-black/80 hover:bg-white dark:hover:bg-black transition-all shadow-lg"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-black/80 hover:bg-white dark:hover:bg-black transition-all shadow-lg z-20"
                 >
                     <ChevronRight className="w-5 h-5" />
                 </button>
 
                 {/* Image counter */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 dark:bg-white/60 text-white dark:text-black text-sm font-medium">
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 dark:bg-white/60 text-white dark:text-black text-sm font-medium z-20">
                     {selectedImage + 1} / {images.length}
                 </div>
             </div>
 
             {/* Mobile Thumbnails Scroll */}
             <div className="flex md:hidden gap-3 overflow-x-auto pb-2 scrollbar-hide snap-x">
-                {images.map((image, index) => (
-                    <button
-                        key={index}
-                        onClick={() => setSelectedImage(index)}
-                        className={cn(
-                            "relative aspect-square w-16 shrink-0 rounded-lg overflow-hidden border-2 transition-all snap-start",
-                            selectedImage === index
-                                ? "border-black dark:border-white"
-                                : "border-transparent opacity-70"
-                        )}
-                    >
-                        <Image
-                            src={image}
-                            alt={`Product view ${index + 1}`}
-                            fill
-                            className="object-cover"
-                        />
-                    </button>
-                ))}
+                {images.map((image, index) => {
+                    const isLoaded = loadedThumbnails.has(index);
+                    return (
+                        <button
+                            key={index}
+                            onClick={() => setSelectedImage(index)}
+                            className={cn(
+                                "relative aspect-square w-16 shrink-0 rounded-lg overflow-hidden border-2 transition-all snap-start",
+                                selectedImage === index
+                                    ? "border-black dark:border-white"
+                                    : "border-transparent opacity-70"
+                            )}
+                        >
+                            {!isLoaded && <ImageSkeleton />}
+                            <Image
+                                src={image}
+                                alt={`Product view ${index + 1}`}
+                                fill
+                                unoptimized
+                                className={cn(
+                                    "object-cover transition-opacity duration-300",
+                                    isLoaded ? "opacity-100" : "opacity-0"
+                                )}
+                                onLoad={() => handleThumbnailLoad(index)}
+                            />
+                        </button>
+                    );
+                })}
             </div>
         </div>
     );

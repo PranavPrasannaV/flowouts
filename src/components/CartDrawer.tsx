@@ -52,6 +52,7 @@ export default function CartDrawer() {
                                                 src={item.images?.[0] || ""}
                                                 alt={item.name}
                                                 fill
+                                                unoptimized
                                                 className="object-cover"
                                                 sizes="80px"
                                             />

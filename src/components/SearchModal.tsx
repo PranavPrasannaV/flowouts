@@ -69,7 +69,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                                     className="flex items-center gap-4 group p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors"
                                 >
                                     <div className="relative w-12 h-16 bg-neutral-200 rounded-sm overflow-hidden">
-                                        <Image src={product.images?.[0] || ""} alt={product.name} fill className="object-cover" />
+                                        <Image src={product.images?.[0] || ""} alt={product.name} fill unoptimized className="object-cover" />
                                     </div>
                                     <div>
                                         <h4 className="font-bold group-hover:underline">{product.name}</h4>

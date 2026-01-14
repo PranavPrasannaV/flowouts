@@ -84,6 +84,11 @@ export default function CollectionPage() {
             accent: "bg-violet-500",
             glow: "shadow-violet-500/20",
         },
+        "the-basics": {
+            gradient: "from-neutral-500/10 via-transparent to-zinc-500/10",
+            accent: "bg-neutral-400",
+            glow: "shadow-neutral-400/20",
+        },
     };
 
     const theme = themes[slug] || themes.rise;

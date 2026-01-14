@@ -1820,5 +1820,362 @@ export const products: Product[] = [
             "Oat Gray": "https://flowouts.com/cdn/shop/files/e9e23c74ec8242118341181547e78555.png?v=1766194340&width=1946",
             "White": "https://flowouts.com/cdn/shop/files/2562b4773aab45a3bb7d137db4bc6956.png?v=1766194340&width=1946"
         }
+    },
+    // --- Kids and Toddlers Collection ---
+    {
+        id: "92",
+        name: "Kid's Game Day Tee",
+        price: "$14.50 USD",
+        category: "T-Shirts",
+        description: "<p>Game Day Tee for kids. Perfect for sports and active days.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/2972893600296765700_2048.jpg?v=1757886033&width=1946",
+            "https://flowouts.com/cdn/shop/files/5086912127055099755_2048.jpg?v=1757885979&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+            { name: "Color", values: ["Navy", "Purple", "Red", "Black", "Irish Green", "Maroon", "Sport Grey", "White", "Cardinal Red", "Ash", "Light Blue", "Light Pink", "Daisy", "Gold", "Heather Navy", "Tropical Blue", "Charcoal"] }
+        ],
+        colorImages: {
+            "Navy": "https://flowouts.com/cdn/shop/files/2972893600296765700_2048.jpg?v=1757886033&width=1946",
+            "White": "https://flowouts.com/cdn/shop/files/5086912127055099755_2048.jpg?v=1757885979&width=1946",
+            "Black": "https://flowouts.com/cdn/shop/files/6481765096377556371_2048.jpg?v=1757885994&width=1946"
+        }
+    },
+    {
+        id: "93",
+        name: "Toddler's Game Day Tee",
+        price: "$13.50 USD",
+        category: "T-Shirts",
+        description: "<p>Game Day Tee for toddlers. Perfect for sports and active days.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/16831620310017668159_2048.jpg?v=1757973399&width=1946",
+            "https://flowouts.com/cdn/shop/files/4677978064975148151_2048.jpg?v=1757973506&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["2T", "3T", "4T", "5-6T"] },
+            { name: "Color", values: ["White", "Black", "Navy", "Pink", "Heather", "Columbia Blue", "Heather Dust", "Heather Maroon", "Heather Yellow Gold", "Kelly", "Natural", "Yellow"] }
+        ],
+        colorImages: {
+            "White": "https://flowouts.com/cdn/shop/files/4677978064975148151_2048.jpg?v=1757973506&width=1946",
+            "Black": "https://flowouts.com/cdn/shop/files/16831620310017668159_2048.jpg?v=1757973399&width=1946",
+            "Navy": "https://flowouts.com/cdn/shop/files/14856003652127880310_2048.jpg?v=1757973412&width=1946"
+        }
+    },
+    {
+        id: "94",
+        name: "Kid's Simplicity Hoodie",
+        price: "$23.50 USD",
+        category: "Hoodies",
+        description: "<p>Comfortable simplicity hoodie for kids.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/6170355878178015588_2048.jpg?v=1757791109&width=1946",
+            "https://flowouts.com/cdn/shop/files/7549626197067855548_2048.jpg?v=1757791198&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+            { name: "Color", values: ["Carolina Blue", "Heliconia", "Irish Green", "Light Pink", "Navy", "Orange", "Purple", "Red", "Royal", "White", "Black", "Gold"] }
+        ],
+        colorImages: {
+            "Carolina Blue": "https://flowouts.com/cdn/shop/files/6170355878178015588_2048.jpg?v=1757791109&width=1946",
+            "Black": "https://flowouts.com/cdn/shop/files/7549626197067855548_2048.jpg?v=1757791198&width=1946",
+            "White": "https://flowouts.com/cdn/shop/files/15627346461728816451_2048.jpg?v=1757791178&width=1946"
+        }
+    },
+    {
+        id: "95",
+        name: "Toddler's Plain Tee",
+        price: "$13.50 USD",
+        category: "T-Shirts",
+        description: "<p>Basic plain tee for toddlers.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/4677978064975148151_2048.jpg?v=1758037568&width=1946",
+            "https://flowouts.com/cdn/shop/files/16831620310017668159_2048.jpg?v=1758037455&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["2T", "3T", "4T", "5-6T"] },
+            { name: "Color", values: ["White", "Black", "Navy", "Pink", "Heather", "Columbia Blue", "Heather Dust", "Heather Maroon", "Heather Mauve", "Heather Red", "Heather Yellow Gold", "Kelly", "Natural", "True Royal", "Yellow"] }
+        ],
+        colorImages: {
+            "White": "https://flowouts.com/cdn/shop/files/4677978064975148151_2048.jpg?v=1758037568&width=1946",
+            "Black": "https://flowouts.com/cdn/shop/files/16831620310017668159_2048.jpg?v=1758037455&width=1946",
+            "Navy": "https://flowouts.com/cdn/shop/files/14856003652127880310_2048.jpg?v=1758037465&width=1946"
+        }
+    },
+    {
+        id: "96",
+        name: "Kid's Plain Tee",
+        price: "$14.50 USD",
+        category: "T-Shirts",
+        description: "<p>Basic plain tee for kids.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/15315818855212696025_2048.jpg?v=1758038019&width=1946",
+            "https://flowouts.com/cdn/shop/files/5086912127055099755_2048.jpg?v=1758037895&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+            { name: "Color", values: ["Daisy", "Navy", "Purple", "Royal", "Light Pink", "Irish Green", "Red", "Black", "White", "Light Blue"] }
+        ],
+        colorImages: {
+            "Daisy": "https://flowouts.com/cdn/shop/files/15315818855212696025_2048.jpg?v=1758038019&width=1946",
+            "White": "https://flowouts.com/cdn/shop/files/5086912127055099755_2048.jpg?v=1758037895&width=1946",
+            "Black": "https://flowouts.com/cdn/shop/files/6481765096377556371_2048.jpg?v=1758037906&width=1946"
+        }
+    },
+    {
+        id: "97",
+        name: "Toddler's Long Sleeve Tee",
+        price: "$15.50 USD",
+        category: "T-Shirts",
+        description: "<p>Long sleeve tee for toddlers.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/12698695652547588899_2048.jpg?v=1758039107&width=1946",
+            "https://flowouts.com/cdn/shop/files/6619116694003866197_2048.jpg?v=1758039123&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["2T", "3T", "4T", "5-6T"] },
+            { name: "Color", values: ["Black", "Light Blue", "Navy", "Pink", "Red", "Royal", "White"] }
+        ],
+        colorImages: {
+            "Black": "https://flowouts.com/cdn/shop/files/12698695652547588899_2048.jpg?v=1758039107&width=1946",
+            "White": "https://flowouts.com/cdn/shop/files/6619116694003866197_2048.jpg?v=1758039123&width=1946",
+            "Navy": "https://flowouts.com/cdn/shop/files/15024419867547403508_2048.jpg?v=1758039136&width=1946"
+        }
+    },
+    {
+        id: "98",
+        name: "Kid's Long Sleeve Tee",
+        price: "$16.50 USD",
+        category: "T-Shirts",
+        description: "<p>Long sleeve tee for kids.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/5592114985498313361_2048.jpg?v=1757885461&width=1946",
+            "https://flowouts.com/cdn/shop/files/7367788864992228947_2048.jpg?v=1757885405&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+            { name: "Color", values: ["Atomic Blue", "Black", "Carolina Blue", "Gold", "Hot Coral", "Lime Shock", "Neon Orange", "Neon Pink", "Pink Raspberry", "Purple", "True Red", "White"] }
+        ],
+        colorImages: {
+            "Atomic Blue": "https://flowouts.com/cdn/shop/files/5592114985498313361_2048.jpg?v=1757885461&width=1946",
+            "Black": "https://flowouts.com/cdn/shop/files/7367788864992228947_2048.jpg?v=1757885405&width=1946",
+            "White": "https://flowouts.com/cdn/shop/files/16219399199605816697_2048.jpg?v=1757885448&width=1946"
+        }
+    },
+    {
+        id: "99",
+        name: "Toddler's Simplicity Sweatshirt",
+        price: "$18.50 USD",
+        category: "Sweatshirts",
+        description: "<p>Comfortable simplicity sweatshirt for toddlers.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/7947257291461284006_2048.jpg?v=1758040266&width=1946",
+            "https://flowouts.com/cdn/shop/files/12682618596697929073_2048.jpg?v=1758040158&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["2T", "3T", "4T", "5-6T"] },
+            { name: "Color", values: ["Black", "Granite Heather", "Heather", "Navy", "Pink", "Red", "Royal"] }
+        ],
+        colorImages: {
+            "Black": "https://flowouts.com/cdn/shop/files/7947257291461284006_2048.jpg?v=1758040266&width=1946",
+            "Navy": "https://flowouts.com/cdn/shop/files/12682618596697929073_2048.jpg?v=1758040158&width=1946",
+            "Royal": "https://flowouts.com/cdn/shop/files/5282166085476698206_2048.jpg?v=1758040135&width=1946"
+        }
+    },
+    {
+        id: "100",
+        name: "Kid's Embroidered Sweatshirt",
+        price: "$24.50 USD",
+        category: "Sweatshirts",
+        description: "<p>Embroidered sweatshirt for kids.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/6770082730265284708_2048.jpg?v=1757884948&width=1946",
+            "https://flowouts.com/cdn/shop/files/6944712045361906494_2048.jpg?v=1757884998&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+            { name: "Color", values: ["Black", "Dark Heather", "Forest Green", "Maroon", "Navy", "Red", "Royal", "Safety Pink", "Sport Grey"] }
+        ],
+        colorImages: {
+            "Black": "https://flowouts.com/cdn/shop/files/6770082730265284708_2048.jpg?v=1757884948&width=1946",
+            "Dark Heather": "https://flowouts.com/cdn/shop/files/6944712045361906494_2048.jpg?v=1757884998&width=1946",
+            "Navy": "https://flowouts.com/cdn/shop/files/17299555888416953116_2048.jpg?v=1757885021&width=1946"
+        }
+    },
+    {
+        id: "101",
+        name: "Toddler's Kindergarten Rocks Tee",
+        price: "$13.50 USD",
+        category: "T-Shirts",
+        description: "<p>Kindergarten Rocks themed tee for toddlers.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/8136826144800590313_2048.jpg?v=1757355076&width=1946",
+            "https://flowouts.com/cdn/shop/files/4677978064975148151_2048.jpg?v=1757355188&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["2T", "3T", "4T", "5-6T"] },
+            { name: "Color", values: ["Heather Columbia Blue", "Heather Dust", "Heather Yellow Gold", "Kelly", "Natural", "Pink", "White", "Yellow"] }
+        ],
+        colorImages: {
+            "Heather Columbia Blue": "https://flowouts.com/cdn/shop/files/8136826144800590313_2048.jpg?v=1757355076&width=1946",
+            "White": "https://flowouts.com/cdn/shop/files/4677978064975148151_2048.jpg?v=1757355188&width=1946",
+            "Natural": "https://flowouts.com/cdn/shop/files/14982264631813680902_2048.jpg?v=1757355141&width=1946"
+        }
+    },
+    {
+        id: "102",
+        name: "Toddler's Pawsitive Tee",
+        price: "$13.50 USD",
+        category: "T-Shirts",
+        description: "<p>Pawsitive design tee for toddlers.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/8136826144800590313_2048.jpg?v=1757355311&width=1946",
+            "https://flowouts.com/cdn/shop/files/4677978064975148151_2048.jpg?v=1757355420&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["2T", "3T", "4T", "5-6T"] },
+            { name: "Color", values: ["Heather Columbia Blue", "Heather Dust", "Heather Mauve", "Heather Red", "Heather Yellow Gold", "Kelly", "Natural", "Pink", "True Royal", "White", "Yellow"] }
+        ],
+        colorImages: {
+            "Heather Columbia Blue": "https://flowouts.com/cdn/shop/files/8136826144800590313_2048.jpg?v=1757355311&width=1946",
+            "White": "https://flowouts.com/cdn/shop/files/4677978064975148151_2048.jpg?v=1757355420&width=1946",
+            "Pink": "https://flowouts.com/cdn/shop/files/680201472831901563_2048.jpg?v=1757355384&width=1946"
+        }
+    },
+    {
+        id: "103",
+        name: "Kid's Pawsitive Tee",
+        price: "$14.50 USD",
+        category: "T-Shirts",
+        description: "<p>Pawsitive design tee for kids.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/15315818855212696025_2048.jpg?v=1757355744&width=1946",
+            "https://flowouts.com/cdn/shop/files/17397024316915346232_2048.jpg?v=1757355752&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+            { name: "Color", values: ["Daisy", "Light Pink", "Purple", "White"] }
+        ],
+        colorImages: {
+            "Daisy": "https://flowouts.com/cdn/shop/files/15315818855212696025_2048.jpg?v=1757355744&width=1946",
+            "Light Pink": "https://flowouts.com/cdn/shop/files/17397024316915346232_2048.jpg?v=1757355752&width=1946",
+            "White": "https://flowouts.com/cdn/shop/files/5086912127055099755_2048.jpg?v=1757355765&width=1946"
+        }
+    },
+    {
+        id: "104",
+        name: "Kid's Bee Cool T-Shirt",
+        price: "$14.50 USD",
+        category: "T-Shirts",
+        description: "<p>Bee Cool design tee for kids.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/mockup-of-a-woman-and-a-little-girl-wearing-t-shirts-at-home-m16007_e6b42c44-8201-4d18-b59d-f84fe681621a.jpg?v=1757355830&width=1946",
+            "https://flowouts.com/cdn/shop/files/mockup-of-a-little-girl-wearing-a-t-shirt-and-playing-at-a-living-room-m16027_0543141a-03c8-465b-a68d-a98752c8ef13.jpg?v=1757355837&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+            { name: "Color", values: ["Daisy", "Light Pink", "Purple", "White"] }
+        ],
+        colorImages: {
+            "Daisy": "https://flowouts.com/cdn/shop/files/mockup-of-a-woman-and-a-little-girl-wearing-t-shirts-at-home-m16007_e6b42c44-8201-4d18-b59d-f84fe681621a.jpg?v=1757355830&width=1946",
+            "Light Pink": "https://flowouts.com/cdn/shop/files/mockup-of-a-little-girl-wearing-a-t-shirt-and-playing-at-a-living-room-m16027_0543141a-03c8-465b-a68d-a98752c8ef13.jpg?v=1757355837&width=1946",
+            "White": "https://flowouts.com/cdn/shop/files/mockup-of-a-little-girl-smiling-while-wearing-a-t-shirt-m16009_8cbe6a08-fd52-4833-9d47-6f8d055fcd4f.jpg?v=1757355835&width=1946"
+        }
+    },
+    {
+        id: "105",
+        name: "Toddler's Bee Cool T-Shirt",
+        price: "$13.50 USD",
+        category: "T-Shirts",
+        description: "<p>Bee Cool design tee for toddlers.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/4677978064975148151_2048.jpg?v=1757355533&width=1946",
+            "https://flowouts.com/cdn/shop/files/14982264631813680902_2048.jpg?v=1757355543&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["2T", "3T", "4T", "5-6T"] },
+            { name: "Color", values: ["White", "Natural", "Heather Dust", "Yellow", "Heather Yellow Gold", "Kelly", "Heather Columbia Blue", "Pink", "Heather Red"] }
+        ],
+        colorImages: {
+            "White": "https://flowouts.com/cdn/shop/files/4677978064975148151_2048.jpg?v=1757355533&width=1946",
+            "Natural": "https://flowouts.com/cdn/shop/files/14982264631813680902_2048.jpg?v=1757355543&width=1946",
+            "Heather Dust": "https://flowouts.com/cdn/shop/files/14549637306712256463_2048.jpg?v=1757355554&width=1946"
+        }
+    },
+    {
+        id: "106",
+        name: "Kid's Unisex T-shirt",
+        price: "$14.50 USD",
+        category: "T-Shirts",
+        description: "<p>Classic unisex t-shirt for kids.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/6481765096377556371_2048.jpg?v=1757367879&width=1946",
+            "https://flowouts.com/cdn/shop/files/5086912127055099755_2048.jpg?v=1757367984&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+            { name: "Color", values: ["Black", "Charcoal", "Daisy", "Light Pink", "Navy", "Purple", "Royal", "Sport Grey", "White"] }
+        ],
+        colorImages: {
+            "Black": "https://flowouts.com/cdn/shop/files/6481765096377556371_2048.jpg?v=1757367879&width=1946",
+            "White": "https://flowouts.com/cdn/shop/files/5086912127055099755_2048.jpg?v=1757367984&width=1946",
+            "Navy": "https://flowouts.com/cdn/shop/files/2972893600296765700_2048.jpg?v=1757367938&width=1946"
+        }
+    },
+    {
+        id: "107",
+        name: "Custom Toddler's Long Sleeve",
+        price: "$15.50 USD",
+        category: "T-Shirts",
+        description: "<p>Custom long sleeve tee for toddlers.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/6619116694003866197_2048.jpg?v=1757366831&width=1946",
+            "https://flowouts.com/cdn/shop/files/8574766867399765665_2048.jpg?v=1757366846&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["2T", "3T", "4T", "5-6T"] },
+            { name: "Color", values: ["White", "Heather", "Light Blue", "Royal", "Black", "Pink", "Red"] }
+        ],
+        colorImages: {
+            "White": "https://flowouts.com/cdn/shop/files/6619116694003866197_2048.jpg?v=1757366831&width=1946",
+            "Black": "https://flowouts.com/cdn/shop/files/12698695652547588899_2048.jpg?v=1757366918&width=1946",
+            "Royal": "https://flowouts.com/cdn/shop/files/14632961632691073131_2048.jpg?v=1757366900&width=1946"
+        }
+    },
+    {
+        id: "108",
+        name: "Toddler's Simplicity Tee",
+        price: "$13.50 USD",
+        category: "T-Shirts",
+        description: "<p>Simplicity design tee for toddlers.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/4506927315371093817_2048.jpg?v=1757444011&width=1946",
+            "https://flowouts.com/cdn/shop/files/6878831001605458285_2048.jpg?v=1757444028&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["2T", "3T", "4T", "5-6T"] },
+            { name: "Color", values: ["Graphite Heather", "Heather Royal"] }
+        ],
+        colorImages: {
+            "Graphite Heather": "https://flowouts.com/cdn/shop/files/4506927315371093817_2048.jpg?v=1757444011&width=1946",
+            "Heather Royal": "https://flowouts.com/cdn/shop/files/6878831001605458285_2048.jpg?v=1757444028&width=1946"
+        }
+    },
+    {
+        id: "109",
+        name: "Kid's Unisex T-shirt (Variant)",
+        price: "$14.50 USD",
+        category: "T-Shirts",
+        description: "<p>Classic unisex t-shirt variant for kids.</p>",
+        images: [
+            "https://flowouts.com/cdn/shop/files/5086912127055099755_2048.jpg?v=1757368094&width=1946"
+        ],
+        options: [
+            { name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+            { name: "Color", values: ["White"] }
+        ],
+        colorImages: {
+            "White": "https://flowouts.com/cdn/shop/files/5086912127055099755_2048.jpg?v=1757368094&width=1946"
+        }
     }
 ];

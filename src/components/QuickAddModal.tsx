@@ -91,6 +91,7 @@ export default function QuickAddModal({ product, isOpen, onClose }: QuickAddModa
                                             src={product.images?.[0] || ""}
                                             alt={product.name}
                                             fill
+                                            unoptimized
                                             className="object-cover"
                                         />
                                     </div>
